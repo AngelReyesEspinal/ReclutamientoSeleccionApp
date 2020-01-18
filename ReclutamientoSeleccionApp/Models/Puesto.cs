@@ -12,6 +12,7 @@ namespace ReclutamientoSeleccionApp.Models
         public string Nombre { get; set; }
         public decimal SalarioMinimo { get; set; }
         public decimal SalarioMaximo { get; set; }
+        public int NivelRiesgoId { get; set; }
         public virtual NivelRiesgo NivelRiesgo { get; set; }
 
     }
