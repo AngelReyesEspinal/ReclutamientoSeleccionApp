@@ -1,12 +1,14 @@
 ﻿using ReclutamientoSeleccionApp.Core.DataModel.Base;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ReclutamientoSeleccionApp.Models
 {
+    [Table("Candidatos", Schema = "dbo")]
     public class Candidato : Base
     {
         public Candidato()
@@ -21,10 +23,10 @@ namespace ReclutamientoSeleccionApp.Models
         public decimal Salario { get; set; }
         public int PuestoId { get; set; }
         public int DepartamentoId { get; set; }
-        public int IndentificacionPersonalId { get; set; }
+        public int DatoPersonalId { get; set; }
         public virtual Puesto Puesto { get; set; }
         public virtual Departamento Departamento { get; set; }
-        public virtual IndentificacionPersonal IndentificacionPersonal { get; set; }
+        public virtual DatoPersonal DatoPersonal { get; set; }
         public virtual ICollection<Idioma> Idiomas { get; set; }
         public virtual ICollection<Competencia> Competencias { get; set; }
         public virtual ICollection<Capacitacion> Capacitaciones { get; set; }

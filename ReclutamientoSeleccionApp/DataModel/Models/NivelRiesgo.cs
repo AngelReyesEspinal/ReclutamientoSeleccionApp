@@ -1,13 +1,15 @@
-﻿using ReclutamientoSeleccionApp.Core.DataModel.Base;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using ReclutamientoSeleccionApp.Core.DataModel.Base;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ReclutamientoSeleccionApp.Models
 {
-    public class Competencia : Base
+    [Table("NivelesDeRiesgo", Schema = "dbo")]
+    public class NivelRiesgo : Base
     {
         public string Descripcion { get; set; }
     }

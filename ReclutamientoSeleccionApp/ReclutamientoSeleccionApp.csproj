@@ -62,26 +62,36 @@
     <Compile Include="Client\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Core\DataModel\BaseEntity\BaseEntity.cs" />
-    <Compile Include="Core\DataModel\BaseEntity\IBaseEntity.cs" />
     <Compile Include="Core\DataModel\Base\Base.cs" />
     <Compile Include="Core\DataModel\Base\IBase.cs" />
-    <Compile Include="Models\Candidato.cs" />
-    <Compile Include="Models\Capacitacion.cs" />
-    <Compile Include="Models\Competencia.cs" />
-    <Compile Include="Models\Departamento.cs" />
-    <Compile Include="Models\Empleado.cs" />
-    <Compile Include="Models\ExperienciaLaboral.cs" />
-    <Compile Include="Models\Idioma.cs" />
-    <Compile Include="Models\Institucion.cs" />
-    <Compile Include="Models\Nivel.cs" />
-    <Compile Include="Models\NivelRiesgo.cs" />
-    <Compile Include="Models\IndentificacionPersonal.cs" />
-    <Compile Include="Models\Puesto.cs" />
+    <Compile Include="DataModel\Models\Candidato.cs" />
+    <Compile Include="DataModel\Models\Capacitacion.cs" />
+    <Compile Include="DataModel\Models\Competencia.cs" />
+    <Compile Include="DataModel\Context\Contexto.cs" />
+    <Compile Include="DataModel\Models\Departamento.cs" />
+    <Compile Include="DataModel\Models\Empleado.cs" />
+    <Compile Include="DataModel\Enums\Codes.cs" />
+    <Compile Include="DataModel\Models\Empresa.cs" />
+    <Compile Include="DataModel\Models\ExperienciaLaboral.cs" />
+    <Compile Include="DataModel\Models\Idioma.cs" />
+    <Compile Include="DataModel\Models\Institucion.cs" />
+    <Compile Include="DataModel\Models\Nivel.cs" />
+    <Compile Include="DataModel\Models\NivelRiesgo.cs" />
+    <Compile Include="DataModel\Models\DatoPersonal.cs" />
+    <Compile Include="DataModel\Models\Puesto.cs" />
+    <Compile Include="DataModel\Models\User.cs" />
+    <Compile Include="Migrations\202001190355454_Init.cs" />
+    <Compile Include="Migrations\202001190355454_Init.designer.cs">
+      <DependentUpon>202001190355454_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Client\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001190355454_Init.resx">
+      <DependentUpon>202001190355454_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
