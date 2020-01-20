@@ -15,9 +15,11 @@ namespace ReclutamientoSeleccionApp.Bl.Services
             _context = new Contexto();
         }
 
-        public bool Autenticar (string user, string passowrd) 
+        public Task<bool> Autenticar (string user, string passowrd) 
         {
-            return _context.Usuarios.Any(x => x.UserName == user && x.Password == passowrd);
+            return Task.Run(() => { 
+                return  _context.Usuarios.Any(x => x.UserName == user && x.Password == passowrd);
+            });
         }
     }
 }

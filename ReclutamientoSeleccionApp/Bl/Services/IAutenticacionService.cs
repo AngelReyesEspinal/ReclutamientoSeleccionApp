@@ -8,6 +8,6 @@ namespace ReclutamientoSeleccionApp.Bl.Services
 {
     public interface IAutenticacionService
     {
-        bool Autenticar(string user, string passowrd);
+        Task<bool> Autenticar(string user, string passowrd);
     }
 }
