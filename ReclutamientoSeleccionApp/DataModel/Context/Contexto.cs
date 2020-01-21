@@ -14,6 +14,12 @@ namespace ReclutamientoSeleccionApp.DataModel.Models
         public Contexto() : base("name=ReclutamientoSeleccionAppConnectionString")
         {
         }
+
+        public new IDbSet<TEntity> Set<TEntity>() where TEntity : class
+        {
+            return base.Set<TEntity>();
+        }
+
         public DbSet<User> Usuarios { get; set; }
         public DbSet<Empleado> Empleados { get; set; }
         public DbSet<Empresa> Empresas { get; set; }

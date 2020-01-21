@@ -1,4 +1,5 @@
 ﻿using ReclutamientoSeleccionApp.Bl.Services;
+using ReclutamientoSeleccionApp.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -64,7 +65,20 @@ namespace ReclutamientoSeleccionApp
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            Dispose();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            var registerView = new RegisterView();
+            Hide();
+            registerView.Show();
+            Dispose();
         }
     }
 }
