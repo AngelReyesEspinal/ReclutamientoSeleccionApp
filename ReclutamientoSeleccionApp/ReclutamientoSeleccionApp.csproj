@@ -59,6 +59,18 @@
     <Compile Include="Bl\Services\UserService\UserService.cs" />
     <Compile Include="Core\DataModel\CurrentUser\CurrentUser.cs" />
     <Compile Include="Core\Repository\BaseRepository.cs" />
+    <Compile Include="Migrations\202001261312111_changing nivel de riesgo to enum.cs" />
+    <Compile Include="Migrations\202001261312111_changing nivel de riesgo to enum.designer.cs">
+      <DependentUpon>202001261312111_changing nivel de riesgo to enum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001261509475_changing deleted to status.cs" />
+    <Compile Include="Migrations\202001261509475_changing deleted to status.designer.cs">
+      <DependentUpon>202001261509475_changing deleted to status.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001261517383_rollback al migration anterior.cs" />
+    <Compile Include="Migrations\202001261517383_rollback al migration anterior.designer.cs">
+      <DependentUpon>202001261517383_rollback al migration anterior.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\CandidatoView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,7 +97,6 @@
     <Compile Include="DataModel\Models\Idioma.cs" />
     <Compile Include="DataModel\Models\Institucion.cs" />
     <Compile Include="DataModel\Models\Nivel.cs" />
-    <Compile Include="DataModel\Models\NivelRiesgo.cs" />
     <Compile Include="DataModel\Models\DatoPersonal.cs" />
     <Compile Include="DataModel\Models\Puesto.cs" />
     <Compile Include="DataModel\Models\User.cs" />
@@ -108,6 +119,15 @@
     <Compile Include="Views\RegisterView.Designer.cs">
       <DependentUpon>RegisterView.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Migrations\202001261312111_changing nivel de riesgo to enum.resx">
+      <DependentUpon>202001261312111_changing nivel de riesgo to enum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001261509475_changing deleted to status.resx">
+      <DependentUpon>202001261509475_changing deleted to status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001261517383_rollback al migration anterior.resx">
+      <DependentUpon>202001261517383_rollback al migration anterior.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\CandidatoView.resx">
       <DependentUpon>CandidatoView.cs</DependentUpon>
     </EmbeddedResource>

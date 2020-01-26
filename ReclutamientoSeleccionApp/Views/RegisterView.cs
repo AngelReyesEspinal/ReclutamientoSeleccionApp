@@ -44,7 +44,7 @@ namespace ReclutamientoSeleccionApp.Views
                     Apellido = ApellidosTxtBox.Text,
                     UserName = UsuarioTxtBox.Text,
                     Password = ContraseniaTxtBox.Text,
-                    Rol = Models.Codes.Rol.ESTANDAR,
+                    Rol = Models.Codes.Rol.Estandar,
                     FechaCreacion = DateTime.Now
                 };
                 var createdUser = await _userService.CreateAsync(usuario);

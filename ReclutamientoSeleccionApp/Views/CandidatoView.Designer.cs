@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CandidatoView));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ContraseniaTxtBox = new System.Windows.Forms.TextBox();
@@ -44,7 +45,6 @@
             this.loading = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -61,6 +61,21 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(263, 602);
             this.panel1.TabIndex = 18;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.Maroon;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button4.Location = new System.Drawing.Point(-3, 195);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(263, 40);
+            this.button4.TabIndex = 22;
+            this.button4.Text = "GESTION DE PUESTOS";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -151,9 +166,9 @@
             this.label1.ForeColor = System.Drawing.Color.Brown;
             this.label1.Location = new System.Drawing.Point(279, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(714, 66);
+            this.label1.Size = new System.Drawing.Size(763, 66);
             this.label1.TabIndex = 10;
-            this.label1.Text = "PERFIL DEL CANDIDATO";
+            this.label1.Text = "GESTION DE CANDIDATOS";
             // 
             // pictureBox2
             // 
@@ -221,20 +236,6 @@
             this.label4.TabIndex = 21;
             this.label4.Text = "Apellidos:";
             this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.Maroon;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button4.Location = new System.Drawing.Point(-3, 195);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(263, 40);
-            this.button4.TabIndex = 22;
-            this.button4.Text = "GESTION DE PUESTOS";
-            this.button4.UseVisualStyleBackColor = false;
             // 
             // CandidatoView
             // 

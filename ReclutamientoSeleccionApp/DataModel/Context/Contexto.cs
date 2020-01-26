@@ -30,11 +30,11 @@ namespace ReclutamientoSeleccionApp.DataModel.Models
         public DbSet<Nivel> Niveles { get; set; }
         public DbSet<Institucion> Instituciones { get; set; }
         public DbSet<Capacitacion> Capacitaciones { get; set; }
-        public DbSet<NivelRiesgo> NivelesDeRiesgo { get; set; }
         public DbSet<Puesto> Puestos { get; set; }
         public DbSet<Competencia> Competencias { get; set; }
         public DbSet<Idioma> Idiomas { get; set; }
 
+        #region Overrides
         private int BeforeSave(Func<int> action)
         {
             foreach (var entry in ChangeTracker.Entries<IBase>())
@@ -60,5 +60,6 @@ namespace ReclutamientoSeleccionApp.DataModel.Models
         {
             return BeforeSave(() => base.SaveChanges());
         }
+        #endregion
     }
 }

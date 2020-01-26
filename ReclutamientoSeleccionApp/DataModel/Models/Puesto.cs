@@ -1,4 +1,5 @@
 ﻿using ReclutamientoSeleccionApp.Core.DataModel.Base;
+using ReclutamientoSeleccionApp.Models.Codes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -14,7 +15,7 @@ namespace ReclutamientoSeleccionApp.Models
         public string Nombre { get; set; }
         public decimal SalarioMinimo { get; set; }
         public decimal SalarioMaximo { get; set; }
-        public int NivelRiesgoId { get; set; }
-        public virtual NivelRiesgo NivelRiesgo { get; set; }
+        public Estado Estado { get; set; }
+        public virtual NivelDeRiesgo NivelDeRiesgo { get; set; }
     }
 }

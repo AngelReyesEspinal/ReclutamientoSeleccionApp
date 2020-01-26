@@ -78,5 +78,13 @@ namespace ReclutamientoSeleccionApp.Views
         {
 
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var puestoView = new PuestoView();
+            Hide();
+            puestoView.Show();
+            Dispose();
+        }
     }
 }

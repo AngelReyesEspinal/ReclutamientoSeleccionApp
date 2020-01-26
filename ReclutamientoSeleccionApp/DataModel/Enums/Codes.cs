@@ -9,9 +9,20 @@ namespace ReclutamientoSeleccionApp.Models.Codes
 {
     public enum Rol
     {
-        [Description("Administrador")]
-        ADMIN = 1,
-        [Description("Estandar")]
-        ESTANDAR = 2
+        Administrador = 1,
+        Estandar = 2
+    }
+
+    public enum NivelDeRiesgo
+    {
+        Alto = 1,
+        Medio = 2,
+        Bajo = 3,
+    }
+
+    public enum Estado
+    {
+        Activo = 0,
+        Inactivo = 1
     }
 }
