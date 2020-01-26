@@ -48,6 +48,7 @@ namespace ReclutamientoSeleccionApp.Views
                     FechaCreacion = DateTime.Now
                 };
                 var createdUser = await _userService.CreateAsync(usuario);
+                MessageBox.Show("Se ha creado el usuario correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CurrentUser.SetCurrentUser(createdUser);
                 hideLoading();
                 //

@@ -48,10 +48,19 @@
             this.NivelesDeRiesgoComboBox = new System.Windows.Forms.ComboBox();
             this.EstadosComboBox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label6 = new System.Windows.Forms.Label();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SalarioMinimo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SalarioMaximo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NivelDeRiesgo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loading)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -107,7 +116,7 @@
             // SalarioMaximoTxtBox
             // 
             this.SalarioMaximoTxtBox.Font = new System.Drawing.Font("Candara Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SalarioMaximoTxtBox.Location = new System.Drawing.Point(610, 196);
+            this.SalarioMaximoTxtBox.Location = new System.Drawing.Point(672, 196);
             this.SalarioMaximoTxtBox.Name = "SalarioMaximoTxtBox";
             this.SalarioMaximoTxtBox.Size = new System.Drawing.Size(314, 27);
             this.SalarioMaximoTxtBox.TabIndex = 35;
@@ -136,7 +145,7 @@
             // NombreTxtBox
             // 
             this.NombreTxtBox.Font = new System.Drawing.Font("Candara Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NombreTxtBox.Location = new System.Drawing.Point(610, 143);
+            this.NombreTxtBox.Location = new System.Drawing.Point(672, 143);
             this.NombreTxtBox.Name = "NombreTxtBox";
             this.NombreTxtBox.Size = new System.Drawing.Size(314, 27);
             this.NombreTxtBox.TabIndex = 30;
@@ -145,7 +154,7 @@
             // SalarioMinimoTxtBox
             // 
             this.SalarioMinimoTxtBox.Font = new System.Drawing.Font("Candara Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SalarioMinimoTxtBox.Location = new System.Drawing.Point(610, 243);
+            this.SalarioMinimoTxtBox.Location = new System.Drawing.Point(672, 243);
             this.SalarioMinimoTxtBox.Name = "SalarioMinimoTxtBox";
             this.SalarioMinimoTxtBox.Size = new System.Drawing.Size(314, 27);
             this.SalarioMinimoTxtBox.TabIndex = 29;
@@ -158,7 +167,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Candara", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(695, 391);
+            this.button1.Location = new System.Drawing.Point(757, 391);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(236, 62);
             this.button1.TabIndex = 28;
@@ -204,7 +213,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(1117, 11);
+            this.pictureBox2.Location = new System.Drawing.Point(1078, 14);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(51, 36);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -215,13 +224,14 @@
             // loading
             // 
             this.loading.Image = ((System.Drawing.Image)(resources.GetObject("loading.Image")));
-            this.loading.Location = new System.Drawing.Point(890, 346);
+            this.loading.Location = new System.Drawing.Point(952, 346);
             this.loading.Name = "loading";
             this.loading.Size = new System.Drawing.Size(177, 157);
             this.loading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.loading.TabIndex = 25;
             this.loading.TabStop = false;
             this.loading.Visible = false;
+            this.loading.Click += new System.EventHandler(this.loading_Click);
             // 
             // label3
             // 
@@ -237,18 +247,20 @@
             // NivelesDeRiesgoComboBox
             // 
             this.NivelesDeRiesgoComboBox.FormattingEnabled = true;
-            this.NivelesDeRiesgoComboBox.Location = new System.Drawing.Point(610, 295);
+            this.NivelesDeRiesgoComboBox.Location = new System.Drawing.Point(672, 295);
             this.NivelesDeRiesgoComboBox.Name = "NivelesDeRiesgoComboBox";
             this.NivelesDeRiesgoComboBox.Size = new System.Drawing.Size(319, 21);
             this.NivelesDeRiesgoComboBox.TabIndex = 38;
+            this.NivelesDeRiesgoComboBox.SelectedIndexChanged += new System.EventHandler(this.NivelesDeRiesgoComboBox_SelectedIndexChanged);
             // 
             // EstadosComboBox
             // 
             this.EstadosComboBox.FormattingEnabled = true;
-            this.EstadosComboBox.Location = new System.Drawing.Point(610, 341);
+            this.EstadosComboBox.Location = new System.Drawing.Point(672, 341);
             this.EstadosComboBox.Name = "EstadosComboBox";
             this.EstadosComboBox.Size = new System.Drawing.Size(319, 21);
             this.EstadosComboBox.TabIndex = 40;
+            this.EstadosComboBox.SelectedIndexChanged += new System.EventHandler(this.EstadosComboBox_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -261,12 +273,77 @@
             this.label5.TabIndex = 39;
             this.label5.Text = "Estado:";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Nombre,
+            this.Id,
+            this.SalarioMinimo,
+            this.SalarioMaximo,
+            this.Estado,
+            this.NivelDeRiesgo});
+            this.dataGridView1.Location = new System.Drawing.Point(290, 478);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(553, 112);
+            this.dataGridView1.TabIndex = 41;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Georgia", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Brown;
+            this.label6.Location = new System.Drawing.Point(292, 440);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(116, 34);
+            this.label6.TabIndex = 42;
+            this.label6.Text = "Puestos";
+            // 
+            // Nombre
+            // 
+            this.Nombre.DataPropertyName = "Nombre";
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
+            // 
+            // SalarioMinimo
+            // 
+            this.SalarioMinimo.DataPropertyName = "SalarioMinimo";
+            this.SalarioMinimo.HeaderText = "Salario mínimo";
+            this.SalarioMinimo.Name = "SalarioMinimo";
+            // 
+            // SalarioMaximo
+            // 
+            this.SalarioMaximo.DataPropertyName = "SalarioMaximo";
+            this.SalarioMaximo.HeaderText = "Salario máximo";
+            this.SalarioMaximo.Name = "SalarioMaximo";
+            // 
+            // Estado
+            // 
+            this.Estado.DataPropertyName = "Estado";
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            // 
+            // NivelDeRiesgo
+            // 
+            this.NivelDeRiesgo.DataPropertyName = "NivelDeRiesgo";
+            this.NivelDeRiesgo.HeaderText = "Nivel de riesgo";
+            this.NivelDeRiesgo.Name = "NivelDeRiesgo";
+            // 
             // PuestoView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1178, 602);
+            this.ClientSize = new System.Drawing.Size(1148, 602);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.EstadosComboBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.NivelesDeRiesgoComboBox);
@@ -292,6 +369,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loading)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -318,5 +396,13 @@
         private System.Windows.Forms.ComboBox NivelesDeRiesgoComboBox;
         private System.Windows.Forms.ComboBox EstadosComboBox;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SalarioMinimo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SalarioMaximo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NivelDeRiesgo;
     }
 }

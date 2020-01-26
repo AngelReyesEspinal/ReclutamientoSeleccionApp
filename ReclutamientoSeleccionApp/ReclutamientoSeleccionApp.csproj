@@ -56,7 +56,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bl\Services\UserService\UserService.cs" />
+    <Compile Include="Bl\Services\PuestoService.cs" />
+    <Compile Include="Bl\Services\UserService.cs" />
     <Compile Include="Core\DataModel\CurrentUser\CurrentUser.cs" />
     <Compile Include="Core\Repository\BaseRepository.cs" />
     <Compile Include="Migrations\202001261312111_changing nivel de riesgo to enum.cs" />

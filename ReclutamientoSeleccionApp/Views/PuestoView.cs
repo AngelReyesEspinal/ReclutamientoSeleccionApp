@@ -1,4 +1,5 @@
-﻿using ReclutamientoSeleccionApp.Models;
+﻿using ReclutamientoSeleccionApp.Bl.Services.UserService;
+using ReclutamientoSeleccionApp.Models;
 using ReclutamientoSeleccionApp.Models.Codes;
 using System;
 using System.Collections.Generic;
@@ -14,9 +15,13 @@ namespace ReclutamientoSeleccionApp.Views
 {
     public partial class PuestoView : Form
     {
+        private readonly PuestoService _puestoService;
+
         public PuestoView()
         {
+            _puestoService = new PuestoService();
             InitializeComponent();
+            update_dataGridView();
         }
 
         private void PuestoView_Load(object sender, EventArgs e)
@@ -27,6 +32,11 @@ namespace ReclutamientoSeleccionApp.Views
             foreach (var nivel in Enum.GetNames(typeof(NivelDeRiesgo))) {
                 NivelesDeRiesgoComboBox.Items.Add(nivel);
             }
+        }
+
+        private async void update_dataGridView() {
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.DataSource = (await _puestoService.GetAll()).ToList();
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -72,22 +82,26 @@ namespace ReclutamientoSeleccionApp.Views
             Application.Exit();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrWhiteSpace(NombreTxtBox.Text) && 
-                !String.IsNullOrWhiteSpace(SalarioMaximoTxtBox.Text) && 
-                !String.IsNullOrWhiteSpace(SalarioMinimoTxtBox.Text) && 
-                !String.IsNullOrWhiteSpace(NivelesDeRiesgoComboBox.Text) &&
-                !String.IsNullOrWhiteSpace(EstadosComboBox.Text)
-            )
+            if (!String.IsNullOrWhiteSpace(NombreTxtBox.Text) && !String.IsNullOrWhiteSpace(SalarioMaximoTxtBox.Text) && !String.IsNullOrWhiteSpace(SalarioMinimoTxtBox.Text) && !String.IsNullOrWhiteSpace(NivelesDeRiesgoComboBox.Text) && !String.IsNullOrWhiteSpace(EstadosComboBox.Text))
             {
                 showLoading();
                 var entity = new Puesto()
                 {
+                    Nombre = NombreTxtBox.Text,
+                    SalarioMaximo = Convert.ToDecimal(SalarioMaximoTxtBox.Text),
+                    SalarioMinimo = Convert.ToDecimal(SalarioMinimoTxtBox.Text),
                     NivelDeRiesgo = (NivelDeRiesgo)Enum.Parse(typeof(NivelDeRiesgo), Convert.ToString(NivelesDeRiesgoComboBox.SelectedItem)),
                     Estado = (Estado)Enum.Parse(typeof(Estado), Convert.ToString(EstadosComboBox.SelectedItem))
                 };
+                var createdEntity = await _puestoService.CreateAsync(entity);
+                MessageBox.Show("Se ha creado el puesto correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                update_dataGridView();
+                hideLoading();
             }
+            else
+                MessageBox.Show("Debe llenar los campos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
 
@@ -99,6 +113,21 @@ namespace ReclutamientoSeleccionApp.Views
         private void hideLoading()
         {
             loading.Visible = false;
+        }
+
+        private void EstadosComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void loading_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NivelesDeRiesgoComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

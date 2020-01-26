@@ -10,7 +10,7 @@ namespace ReclutamientoSeleccionApp.Core.Repository
 {
     public interface IBaseRepository<TEntity> where TEntity : class
     {
-        IQueryable<TEntity> GetAll();
+        Task<IQueryable<TEntity>> GetAll();
         TEntity GetById(object id);
         Task<TEntity> CreateAsync(TEntity entity);
         void Update(TEntity entity);
@@ -31,9 +31,11 @@ namespace ReclutamientoSeleccionApp.Core.Repository
             this._context = new Contexto();
         }
 
-        public IQueryable<TEntity> GetAll()
+        public async Task<IQueryable<TEntity>>  GetAll()
         {
-            return Entities.AsQueryable();
+            return await Task.Run(() => {
+                return Entities.AsQueryable();
+            });
         }
 
         public TEntity GetById(object id)
