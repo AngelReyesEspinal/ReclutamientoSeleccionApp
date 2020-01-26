@@ -1,4 +1,5 @@
 ﻿using ReclutamientoSeleccionApp.Bl.Services.UserService;
+using ReclutamientoSeleccionApp.Core.DataModel.CurrentUser;
 using ReclutamientoSeleccionApp.Models;
 using System;
 using System.Collections.Generic;
@@ -29,12 +30,12 @@ namespace ReclutamientoSeleccionApp.Views
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            Dispose();
+            Application.Exit();
         }
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            if (NombresTxtBox.Text != "" && ApellidosTxtBox.Text != "" && UsuarioTxtBox.Text != "" && ContraseniaTxtBox.Text != "")
+            if (!String.IsNullOrWhiteSpace(NombresTxtBox.Text) && !String.IsNullOrWhiteSpace(ApellidosTxtBox.Text) && !String.IsNullOrWhiteSpace(UsuarioTxtBox.Text) && !String.IsNullOrWhiteSpace(ContraseniaTxtBox.Text))
             {
                 showLoading();
                 var usuario = new User()
@@ -46,8 +47,14 @@ namespace ReclutamientoSeleccionApp.Views
                     Rol = Models.Codes.Rol.ESTANDAR,
                     FechaCreacion = DateTime.Now
                 };
-                var newUser = await _userService.CreateAsync(usuario);
+                var createdUser = await _userService.CreateAsync(usuario);
+                CurrentUser.SetCurrentUser(createdUser);
                 hideLoading();
+                //
+                var candidatoView = new CandidatoView();
+                Hide();
+                candidatoView.Show();
+                Dispose();
             }
             else
                 MessageBox.Show("Debe llenar los campos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
