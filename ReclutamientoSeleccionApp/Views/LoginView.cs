@@ -1,5 +1,6 @@
 ﻿using ReclutamientoSeleccionApp.Bl.Services;
 using ReclutamientoSeleccionApp.Bl.Services.UserService;
+using ReclutamientoSeleccionApp.Core.DataModel.CurrentUser;
 using ReclutamientoSeleccionApp.Views;
 using System;
 using System.Collections.Generic;
@@ -36,11 +37,18 @@ namespace ReclutamientoSeleccionApp
         {
             if (UsuarioTxtBox.Text != "" && ContraseniaTxtBox.Text != "") {
                 showLoading();
-                if (await _userService.Autenticar(UsuarioTxtBox.Text, ContraseniaTxtBox.Text))
-                    MessageBox.Show("Muy bien", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                var currentUser = await _userService.Autenticar(UsuarioTxtBox.Text, ContraseniaTxtBox.Text);
+                if (currentUser != null)
+                    MessageBox.Show("Bienvenido "+ currentUser.Nombre + " " + currentUser.Apellido, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else 
                     MessageBox.Show("Favor validar sus credenciales", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                CurrentUser.SetCurrentUser(currentUser);
                 hideLoading();
+                //
+                var candidatoView = new CandidatoView();
+                Hide();
+                candidatoView.Show();
+                Dispose();
             }
             else 
                 MessageBox.Show("Debe llenar los campos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);

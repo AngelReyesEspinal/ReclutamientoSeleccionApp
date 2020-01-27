@@ -7,10 +7,10 @@ namespace ReclutamientoSeleccionApp.Bl.Services.UserService
 {
     public class UserService : BaseRepository<User>
     {
-        public Task<bool> Autenticar(string user, string passowrd)
+        public Task<User> Autenticar(string user, string passowrd)
         {
             return Task.Run(() => {
-                return _context.Usuarios.Any(x => x.UserName == user && x.Password == passowrd);
+                return _context.Usuarios.FirstOrDefault(x => x.UserName == user && x.Password == passowrd);
             });
         }
     }

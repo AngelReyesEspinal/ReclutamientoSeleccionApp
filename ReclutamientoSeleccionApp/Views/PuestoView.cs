@@ -95,7 +95,7 @@ namespace ReclutamientoSeleccionApp.Views
                     NivelDeRiesgo = (NivelDeRiesgo)Enum.Parse(typeof(NivelDeRiesgo), Convert.ToString(NivelesDeRiesgoComboBox.SelectedItem)),
                     Estado = (Estado)Enum.Parse(typeof(Estado), Convert.ToString(EstadosComboBox.SelectedItem))
                 };
-                var createdEntity = await _puestoService.CreateAsync(entity);
+                await _puestoService.CreateAsync(entity);
                 MessageBox.Show("Se ha creado el puesto correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 update_dataGridView();
                 hideLoading();
