@@ -16,7 +16,7 @@ namespace ReclutamientoSeleccionApp.Views
     public partial class PuestoView : Form
     {
         private readonly PuestoService _puestoService;
-
+        private int _rowSelectedId = 0;
         public PuestoView()
         {
             _puestoService = new PuestoService();
@@ -89,15 +89,22 @@ namespace ReclutamientoSeleccionApp.Views
                 showLoading();
                 var entity = new Puesto()
                 {
+                    Id = _rowSelectedId,
                     Nombre = NombreTxtBox.Text,
                     SalarioMaximo = Convert.ToDecimal(SalarioMaximoTxtBox.Text),
                     SalarioMinimo = Convert.ToDecimal(SalarioMinimoTxtBox.Text),
                     NivelDeRiesgo = (NivelDeRiesgo)Enum.Parse(typeof(NivelDeRiesgo), Convert.ToString(NivelesDeRiesgoComboBox.SelectedItem)),
                     Estado = (Estado)Enum.Parse(typeof(Estado), Convert.ToString(EstadosComboBox.SelectedItem))
                 };
-                await _puestoService.CreateAsync(entity);
-                MessageBox.Show("Se ha creado el puesto correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                string accionRealizada = _rowSelectedId == 0 
+                    ? accionRealizada = "creado" 
+                    : accionRealizada = "editado";
+
+                await _puestoService.AddOrUpdateAsync(entity);
+                MessageBox.Show("Se ha " + accionRealizada + " el puesto correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 update_dataGridView();
+                cleanModel();
                 hideLoading();
             }
             else
@@ -108,6 +115,16 @@ namespace ReclutamientoSeleccionApp.Views
         private void showLoading()
         {
             loading.Visible = true;
+        }
+
+        private void cleanModel() {
+            _rowSelectedId = 0;
+            NombreTxtBox.Text = "";
+            SalarioMaximoTxtBox.Text = "";
+            SalarioMinimoTxtBox.Text = "";
+            NivelesDeRiesgoComboBox.SelectedItem = null;
+            EstadosComboBox.SelectedItem = null;
+            button1.Text = "Guardar";
         }
 
         private void hideLoading()
@@ -128,6 +145,69 @@ namespace ReclutamientoSeleccionApp.Views
         private void NivelesDeRiesgoComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            bool sePuedeEditar = true;
+            string mensaje = "";
+
+            if (dataGridView1.SelectedRows.Count == 0) {
+                sePuedeEditar = false;
+                mensaje = "Debe seleccionar almenos una fila para editar";
+            }
+
+            if (dataGridView1.SelectedRows.Count > 1) {
+                sePuedeEditar = false;
+                mensaje = "Debe seleccionar solo la fila que desea editar";
+            }
+
+            if (!sePuedeEditar) {
+                MessageBox.Show(mensaje, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int rowIndex = dataGridView1.CurrentCell.RowIndex;
+            _rowSelectedId = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells["Id"].FormattedValue.ToString());
+            NombreTxtBox.Text = dataGridView1.Rows[rowIndex].Cells["Nombre"].FormattedValue.ToString();
+            SalarioMinimoTxtBox.Text = dataGridView1.Rows[rowIndex].Cells["SalarioMinimo"].FormattedValue.ToString();
+            SalarioMaximoTxtBox.Text = dataGridView1.Rows[rowIndex].Cells["SalarioMaximo"].FormattedValue.ToString();
+            NivelesDeRiesgoComboBox.SelectedIndex = NivelesDeRiesgoComboBox.Items.IndexOf(dataGridView1.Rows[rowIndex].Cells["NivelDeRiesgo"].FormattedValue.ToString());
+            EstadosComboBox.SelectedIndex = EstadosComboBox.Items.IndexOf(dataGridView1.Rows[rowIndex].Cells["Estado"].FormattedValue.ToString());
+            button1.Text = "Editar";
+        }
+
+        private async void button5_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 0) {
+                MessageBox.Show("Debe seleccionar almenos una fila para eliminarla",
+                    "Aviso", MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
+            showLoading();
+            var rowsIndex = new List<int>();
+            for (int i = 0; i < dataGridView1.SelectedRows.Count; i++) {
+                rowsIndex.Add(Convert.ToInt32(dataGridView1.SelectedRows[i].Cells["Id"].FormattedValue.ToString()));
+            }
+            await _puestoService.DeleteManyAsync((await _puestoService.GetAllByIds(rowsIndex)).ToList());
+            update_dataGridView();
+            string accionRealizada = dataGridView1.SelectedRows.Count > 1
+                    ? accionRealizada = "han eliminado los registros"
+                    : accionRealizada = "ha eliminado el registro";
+            MessageBox.Show("Se " + accionRealizada + " correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            hideLoading();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+
+        }
+
+        private void limpiarbtn_Click(object sender, EventArgs e)
+        {
+            cleanModel();
         }
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,8 +14,9 @@ namespace ReclutamientoSeleccionApp.Core.Repository
         Task<IQueryable<TEntity>> GetAll();
         TEntity GetById(object id);
         Task<TEntity> CreateAsync(TEntity entity);
-        void Update(TEntity entity);
-        void Delete(TEntity entity);
+        Task AddOrUpdateAsync(TEntity entity);
+        Task DeleteAsync(TEntity entity);
+        Task DeleteManyAsync(List<TEntity> entities);
     }
 
     public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class
@@ -52,16 +54,31 @@ namespace ReclutamientoSeleccionApp.Core.Repository
             });
         }
 
-        public void Update(TEntity entity)
+        public async Task AddOrUpdateAsync(TEntity entity)
         {
-            if (entity == null)
-                throw new ArgumentNullException("entity");
-            _context.SaveChanges();
+            await Task.Run(() => {
+                Entities.AddOrUpdate(entity);
+                _context.SaveChanges();
+            });
         }
 
-        public void Delete(TEntity entity)
+        public async Task DeleteAsync(TEntity entity)
         {
-            Entities.Remove(entity);
+            await Task.Run(() => {
+                Entities.Remove(entity);
+                _context.SaveChanges();
+            });
+        }
+
+        public async Task DeleteManyAsync(List<TEntity> entities)
+        {
+            await Task.Run(() => {
+                foreach (var entity in  entities)
+                {
+                    Entities.Remove(entity);
+                }
+                _context.SaveChanges();
+            });
         }
 
         public void Dispose()
