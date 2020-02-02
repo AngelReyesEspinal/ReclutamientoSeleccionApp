@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Init : DbMigration
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {
@@ -93,19 +93,21 @@
                         Nombre = c.String(),
                         SalarioMinimo = c.Decimal(nullable: false, precision: 18, scale: 2),
                         SalarioMaximo = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        NivelRiesgoId = c.Int(nullable: false),
+                        Estado = c.Int(nullable: false),
+                        NivelDeRiesgo = c.Int(nullable: false),
+                        DepartamentoId = c.Int(nullable: false),
                         Deleted = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.NivelesDeRiesgo", t => t.NivelRiesgoId, cascadeDelete: true)
-                .Index(t => t.NivelRiesgoId);
+                .ForeignKey("dbo.Departamentos", t => t.DepartamentoId, cascadeDelete: false)
+                .Index(t => t.DepartamentoId);
             
             CreateTable(
-                "dbo.NivelesDeRiesgo",
+                "dbo.Departamentos",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Descripcion = c.String(),
+                        Nombre = c.String(),
                         Deleted = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
@@ -116,16 +118,6 @@
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Cedula = c.String(),
-                        Nombre = c.String(),
-                        Deleted = c.Boolean(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
-                "dbo.Departamentos",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
                         Nombre = c.String(),
                         Deleted = c.Boolean(nullable: false),
                     })
@@ -223,7 +215,7 @@
             DropForeignKey("dbo.Candidatos", "DatoPersonalId", "dbo.DatosPersonales");
             DropForeignKey("dbo.Competencias", "Candidato_Id", "dbo.Candidatos");
             DropForeignKey("dbo.Competencias", "PuestoId", "dbo.Puestos");
-            DropForeignKey("dbo.Puestos", "NivelRiesgoId", "dbo.NivelesDeRiesgo");
+            DropForeignKey("dbo.Puestos", "DepartamentoId", "dbo.Departamentos");
             DropForeignKey("dbo.Capacitaciones", "Candidato_Id", "dbo.Candidatos");
             DropForeignKey("dbo.Capacitaciones", "NivelId", "dbo.Niveles");
             DropForeignKey("dbo.Capacitaciones", "InstitucionId", "dbo.Instituciones");
@@ -233,7 +225,7 @@
             DropIndex("dbo.Idiomas", new[] { "Candidato_Id" });
             DropIndex("dbo.ExperienciasLaborales", new[] { "Candidato_Id" });
             DropIndex("dbo.ExperienciasLaborales", new[] { "EmpresaId" });
-            DropIndex("dbo.Puestos", new[] { "NivelRiesgoId" });
+            DropIndex("dbo.Puestos", new[] { "DepartamentoId" });
             DropIndex("dbo.Competencias", new[] { "Candidato_Id" });
             DropIndex("dbo.Competencias", new[] { "PuestoId" });
             DropIndex("dbo.Capacitaciones", new[] { "Candidato_Id" });
@@ -247,9 +239,8 @@
             DropTable("dbo.Idiomas");
             DropTable("dbo.Empresas");
             DropTable("dbo.ExperienciasLaborales");
-            DropTable("dbo.Departamentos");
             DropTable("dbo.DatosPersonales");
-            DropTable("dbo.NivelesDeRiesgo");
+            DropTable("dbo.Departamentos");
             DropTable("dbo.Puestos");
             DropTable("dbo.Competencias");
             DropTable("dbo.Niveles");

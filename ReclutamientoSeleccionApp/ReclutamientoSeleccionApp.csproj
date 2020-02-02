@@ -57,28 +57,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bl\Services\DepartamentoService.cs" />
     <Compile Include="Bl\Services\PuestoService.cs" />
     <Compile Include="Bl\Services\UserService.cs" />
     <Compile Include="Core\DataModel\CurrentUser\CurrentUser.cs" />
     <Compile Include="Core\Repository\BaseRepository.cs" />
-    <Compile Include="DataModel\Context\ExpressionExtensions.cs" />
-    <Compile Include="Migrations\202001261312111_changing nivel de riesgo to enum.cs" />
-    <Compile Include="Migrations\202001261312111_changing nivel de riesgo to enum.designer.cs">
-      <DependentUpon>202001261312111_changing nivel de riesgo to enum.cs</DependentUpon>
+    <Compile Include="DataModel\Dtos\PuestoDto.cs" />
+    <Compile Include="Migrations\202002021513298_Initial.cs" />
+    <Compile Include="Migrations\202002021513298_Initial.designer.cs">
+      <DependentUpon>202002021513298_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202001261509475_changing deleted to status.cs" />
-    <Compile Include="Migrations\202001261509475_changing deleted to status.designer.cs">
-      <DependentUpon>202001261509475_changing deleted to status.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001261517383_rollback al migration anterior.cs" />
-    <Compile Include="Migrations\202001261517383_rollback al migration anterior.designer.cs">
-      <DependentUpon>202001261517383_rollback al migration anterior.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Views\CandidatoView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\CandidatoView.Designer.cs">
       <DependentUpon>CandidatoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DepartamentoView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DepartamentoView.Designer.cs">
+      <DependentUpon>DepartamentoView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginView.cs">
       <SubType>Form</SubType>
@@ -103,11 +103,6 @@
     <Compile Include="DataModel\Models\DatoPersonal.cs" />
     <Compile Include="DataModel\Models\Puesto.cs" />
     <Compile Include="DataModel\Models\User.cs" />
-    <Compile Include="Migrations\202001190355454_Init.cs" />
-    <Compile Include="Migrations\202001190355454_Init.designer.cs">
-      <DependentUpon>202001190355454_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\PuestoView.cs">
@@ -122,23 +117,17 @@
     <Compile Include="Views\RegisterView.Designer.cs">
       <DependentUpon>RegisterView.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Migrations\202001261312111_changing nivel de riesgo to enum.resx">
-      <DependentUpon>202001261312111_changing nivel de riesgo to enum.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001261509475_changing deleted to status.resx">
-      <DependentUpon>202001261509475_changing deleted to status.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001261517383_rollback al migration anterior.resx">
-      <DependentUpon>202001261517383_rollback al migration anterior.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202002021513298_Initial.resx">
+      <DependentUpon>202002021513298_Initial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\CandidatoView.resx">
       <DependentUpon>CandidatoView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\DepartamentoView.resx">
+      <DependentUpon>DepartamentoView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\LoginView.resx">
       <DependentUpon>LoginView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001190355454_Init.resx">
-      <DependentUpon>202001190355454_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

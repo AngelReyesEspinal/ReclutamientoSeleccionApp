@@ -16,27 +16,54 @@ namespace ReclutamientoSeleccionApp.Views
     public partial class PuestoView : Form
     {
         private readonly PuestoService _puestoService;
+        private readonly DepartamentoService _departamentoService;
         private int _rowSelectedId = 0;
+        private List<Departamento> _departamentos;
         public PuestoView()
         {
             _puestoService = new PuestoService();
+            _departamentoService = new DepartamentoService();
+            _departamentos = new List<Departamento>();
             InitializeComponent();
             update_dataGridView();
         }
 
-        private void PuestoView_Load(object sender, EventArgs e)
+        private void SalarioMaximoTxtBox_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private async void PuestoView_Load(object sender, EventArgs e)
+        {
+            showLoading();
+            _departamentos = (await _departamentoService.GetAll()).ToList();
+            foreach (var dept in _departamentos)
+            {
+                DepartamentosComboBox.Items.Add(dept);
+                DepartamentosComboBox.DisplayMember = "Nombre";
+                DepartamentosComboBox.ValueMember = "Id";
+            }
             foreach (var estado in Enum.GetNames(typeof(Estado))) {
                 EstadosComboBox.Items.Add(estado);
             }
             foreach (var nivel in Enum.GetNames(typeof(NivelDeRiesgo))) {
                 NivelesDeRiesgoComboBox.Items.Add(nivel);
             }
+            hideLoading();
         }
 
         private async void update_dataGridView() {
             dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.DataSource = (await _puestoService.GetAll()).ToList();
+            dataGridView1.DataSource = await _puestoService.GetAllDtos();
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -66,7 +93,6 @@ namespace ReclutamientoSeleccionApp.Views
 
         private void UsuarioTxtBox_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -84,22 +110,35 @@ namespace ReclutamientoSeleccionApp.Views
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrWhiteSpace(NombreTxtBox.Text) && !String.IsNullOrWhiteSpace(SalarioMaximoTxtBox.Text) && !String.IsNullOrWhiteSpace(SalarioMinimoTxtBox.Text) && !String.IsNullOrWhiteSpace(NivelesDeRiesgoComboBox.Text) && !String.IsNullOrWhiteSpace(EstadosComboBox.Text))
+            if (!String.IsNullOrWhiteSpace(NombreTxtBox.Text) 
+             && !String.IsNullOrWhiteSpace(SalarioMaximoTxtBox.Text) 
+             && !String.IsNullOrWhiteSpace(SalarioMinimoTxtBox.Text) 
+             && !String.IsNullOrWhiteSpace(NivelesDeRiesgoComboBox.Text)
+             && !String.IsNullOrWhiteSpace(DepartamentosComboBox.Text)
+             && !String.IsNullOrWhiteSpace(EstadosComboBox.Text))
             {
                 showLoading();
                 string accionRealizada;
+                var dept = (Departamento)DepartamentosComboBox.SelectedItem;
                 var entity = new Puesto()
                 {
                     Id = _rowSelectedId,
                     Nombre = NombreTxtBox.Text,
+                    DepartamentoId = dept.Id,
                     SalarioMaximo = Convert.ToDecimal(SalarioMaximoTxtBox.Text),
                     SalarioMinimo = Convert.ToDecimal(SalarioMinimoTxtBox.Text),
                     NivelDeRiesgo = (NivelDeRiesgo)Enum.Parse(typeof(NivelDeRiesgo), Convert.ToString(NivelesDeRiesgoComboBox.SelectedItem)),
                     Estado = (Estado)Enum.Parse(typeof(Estado), Convert.ToString(EstadosComboBox.SelectedItem))
                 };
 
+                if (entity.SalarioMinimo >= entity.SalarioMaximo) { 
+                    MessageBox.Show("El salario máximo no puede ser menor o igual al salario mínimo", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    hideLoading();
+                    return;
+                }
+
                 if (_rowSelectedId == 0) {
-                    if (await _puestoService.ValidateIfExist(NombreTxtBox.Text)) {
+                    if (await _puestoService.ValidateIfExist(entity.Nombre, entity.DepartamentoId)) {
                         MessageBox.Show("Ya se ha creado un puesto con ese nombre", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         hideLoading();
                         return;
@@ -116,7 +155,7 @@ namespace ReclutamientoSeleccionApp.Views
                 hideLoading();
             }
             else
-                MessageBox.Show("Debe llenar los campos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Debe llenar todos los campos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
 
@@ -132,6 +171,7 @@ namespace ReclutamientoSeleccionApp.Views
             SalarioMinimoTxtBox.Text = "";
             NivelesDeRiesgoComboBox.SelectedItem = null;
             EstadosComboBox.SelectedItem = null;
+            DepartamentosComboBox.SelectedItem = null;
             button1.Text = "Guardar";
         }
 
@@ -180,6 +220,7 @@ namespace ReclutamientoSeleccionApp.Views
             NombreTxtBox.Text = dataGridView1.Rows[rowIndex].Cells["Nombre"].FormattedValue.ToString();
             SalarioMinimoTxtBox.Text = dataGridView1.Rows[rowIndex].Cells["SalarioMinimo"].FormattedValue.ToString();
             SalarioMaximoTxtBox.Text = dataGridView1.Rows[rowIndex].Cells["SalarioMaximo"].FormattedValue.ToString();
+            DepartamentosComboBox.SelectedItem = _departamentos.Find(x => x.Nombre == (dataGridView1.Rows[rowIndex].Cells["Departamento"].FormattedValue.ToString()));
             NivelesDeRiesgoComboBox.SelectedIndex = NivelesDeRiesgoComboBox.Items.IndexOf(dataGridView1.Rows[rowIndex].Cells["NivelDeRiesgo"].FormattedValue.ToString());
             EstadosComboBox.SelectedIndex = EstadosComboBox.Items.IndexOf(dataGridView1.Rows[rowIndex].Cells["Estado"].FormattedValue.ToString());
             button1.Text = "Editar";
@@ -216,6 +257,63 @@ namespace ReclutamientoSeleccionApp.Views
         private void limpiarbtn_Click(object sender, EventArgs e)
         {
             cleanModel();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var puestoView = new PuestoView();
+            Hide();
+            puestoView.Show();
+            Dispose();
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            var deptarmentoView = new DepartamentoView();
+            Hide();
+            deptarmentoView.Show();
+            Dispose();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            var candidatoView = new CandidatoView();
+            Hide();
+            candidatoView.Show();
+            Dispose();
+        }
+
+        private void SalarioMinimoTxtBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void SalarioMaximoTxtBox_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

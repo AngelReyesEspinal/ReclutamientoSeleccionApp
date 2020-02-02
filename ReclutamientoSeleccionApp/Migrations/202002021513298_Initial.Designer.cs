@@ -7,13 +7,13 @@ namespace ReclutamientoSeleccionApp.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class changingnivelderiesgotoenum : IMigrationMetadata
+    public sealed partial class Initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(changingnivelderiesgotoenum));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "202001261312111_changing nivel de riesgo to enum"; }
+            get { return "202002021513298_Initial"; }
         }
         
         string IMigrationMetadata.Source

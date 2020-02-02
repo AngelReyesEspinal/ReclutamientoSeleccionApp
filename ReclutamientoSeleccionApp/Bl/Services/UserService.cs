@@ -10,7 +10,7 @@ namespace ReclutamientoSeleccionApp.Bl.Services.UserService
         public Task<User> Autenticar(string user, string password)
         {
             return Task.Run(() => {
-                return _context.Usuarios.FirstOrDefault(x => !x.Deleted && (x.UserName == user && x.Password == password));
+                return _context.Usuarios.FirstOrDefault(x => (x.UserName == user && x.Password == password) && !x.Deleted);
             });
         }
     }

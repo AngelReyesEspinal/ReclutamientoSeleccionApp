@@ -38,17 +38,17 @@ namespace ReclutamientoSeleccionApp
             if (UsuarioTxtBox.Text != "" && ContraseniaTxtBox.Text != "") {
                 showLoading();
                 var currentUser = await _userService.Autenticar(UsuarioTxtBox.Text, ContraseniaTxtBox.Text);
-                if (currentUser != null)
+                if (currentUser != null) {
                     MessageBox.Show("Bienvenido "+ currentUser.Nombre + " " + currentUser.Apellido, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                else 
+                    CurrentUser.SetCurrentUser(currentUser);
+                    var candidatoView = new CandidatoView();
+                    Hide();
+                    candidatoView.Show();
+                    Dispose();
+                } else
                     MessageBox.Show("Favor validar sus credenciales", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                CurrentUser.SetCurrentUser(currentUser);
+                
                 hideLoading();
-                //
-                var candidatoView = new CandidatoView();
-                Hide();
-                candidatoView.Show();
-                Dispose();
             }
             else 
                 MessageBox.Show("Debe llenar los campos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);

@@ -16,6 +16,8 @@ namespace ReclutamientoSeleccionApp.Models
         public decimal SalarioMinimo { get; set; }
         public decimal SalarioMaximo { get; set; }
         public Estado Estado { get; set; }
-        public virtual NivelDeRiesgo NivelDeRiesgo { get; set; }
+        public NivelDeRiesgo NivelDeRiesgo { get; set; }
+        public int DepartamentoId { get; set; }
+        public virtual Departamento Departamento { get; set; }
     }
 }
