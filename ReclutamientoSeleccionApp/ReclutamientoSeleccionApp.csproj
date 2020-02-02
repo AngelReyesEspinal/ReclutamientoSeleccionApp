@@ -45,6 +45,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -60,6 +61,7 @@
     <Compile Include="Bl\Services\UserService.cs" />
     <Compile Include="Core\DataModel\CurrentUser\CurrentUser.cs" />
     <Compile Include="Core\Repository\BaseRepository.cs" />
+    <Compile Include="DataModel\Context\ExpressionExtensions.cs" />
     <Compile Include="Migrations\202001261312111_changing nivel de riesgo to enum.cs" />
     <Compile Include="Migrations\202001261312111_changing nivel de riesgo to enum.designer.cs">
       <DependentUpon>202001261312111_changing nivel de riesgo to enum.cs</DependentUpon>

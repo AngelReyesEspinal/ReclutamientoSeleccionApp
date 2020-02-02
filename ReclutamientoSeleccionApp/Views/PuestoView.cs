@@ -87,6 +87,7 @@ namespace ReclutamientoSeleccionApp.Views
             if (!String.IsNullOrWhiteSpace(NombreTxtBox.Text) && !String.IsNullOrWhiteSpace(SalarioMaximoTxtBox.Text) && !String.IsNullOrWhiteSpace(SalarioMinimoTxtBox.Text) && !String.IsNullOrWhiteSpace(NivelesDeRiesgoComboBox.Text) && !String.IsNullOrWhiteSpace(EstadosComboBox.Text))
             {
                 showLoading();
+                string accionRealizada;
                 var entity = new Puesto()
                 {
                     Id = _rowSelectedId,
@@ -97,9 +98,16 @@ namespace ReclutamientoSeleccionApp.Views
                     Estado = (Estado)Enum.Parse(typeof(Estado), Convert.ToString(EstadosComboBox.SelectedItem))
                 };
 
-                string accionRealizada = _rowSelectedId == 0 
-                    ? accionRealizada = "creado" 
-                    : accionRealizada = "editado";
+                if (_rowSelectedId == 0) {
+                    if (await _puestoService.ValidateIfExist(NombreTxtBox.Text)) {
+                        MessageBox.Show("Ya se ha creado un puesto con ese nombre", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        hideLoading();
+                        return;
+                    }
+                    accionRealizada = "creado";
+                } else {
+                    accionRealizada = "editado";
+                }
 
                 await _puestoService.AddOrUpdateAsync(entity);
                 MessageBox.Show("Se ha " + accionRealizada + " el puesto correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);

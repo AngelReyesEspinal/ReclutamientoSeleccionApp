@@ -1,4 +1,5 @@
-﻿using ReclutamientoSeleccionApp.Core.DataModel.CurrentUser;
+﻿using ReclutamientoSeleccionApp.Bl.Services.UserService;
+using ReclutamientoSeleccionApp.Core.DataModel.CurrentUser;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +14,11 @@ namespace ReclutamientoSeleccionApp.Views
 {
     public partial class CandidatoView : Form
     {
+        private readonly PuestoService _puestoService;
         public CandidatoView()
         {
             InitializeComponent();
+            _puestoService = new PuestoService();
             var x = CurrentUser.Nombre;
         }
 
@@ -85,6 +88,11 @@ namespace ReclutamientoSeleccionApp.Views
             Hide();
             puestoView.Show();
             Dispose();
+        }
+
+        private void NivelesDeRiesgoComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

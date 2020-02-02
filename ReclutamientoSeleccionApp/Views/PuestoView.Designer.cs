@@ -288,7 +288,7 @@
             this.NivelDeRiesgo});
             this.dataGridView1.Location = new System.Drawing.Point(290, 478);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(568, 112);
+            this.dataGridView1.Size = new System.Drawing.Size(545, 112);
             this.dataGridView1.TabIndex = 41;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
