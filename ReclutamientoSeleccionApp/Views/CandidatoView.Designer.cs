@@ -51,6 +51,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.SalarioAspiradoTxtBox = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.DepartamentoComboBox = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.NivelDeRiesgoLabel = new System.Windows.Forms.Label();
@@ -60,8 +62,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.puestosLoading = new System.Windows.Forms.PictureBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.SalarioAspiradoTxtBox = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -352,6 +353,27 @@
             this.groupBox2.Text = "2. INFORMACION SOBRE EL PUESTO";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
+            // SalarioAspiradoTxtBox
+            // 
+            this.SalarioAspiradoTxtBox.Font = new System.Drawing.Font("Candara Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SalarioAspiradoTxtBox.Location = new System.Drawing.Point(258, 248);
+            this.SalarioAspiradoTxtBox.Name = "SalarioAspiradoTxtBox";
+            this.SalarioAspiradoTxtBox.PasswordChar = '*';
+            this.SalarioAspiradoTxtBox.Size = new System.Drawing.Size(250, 27);
+            this.SalarioAspiradoTxtBox.TabIndex = 23;
+            this.SalarioAspiradoTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SalarioAspiradoTxtBox_KeyPress);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Georgia", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(16, 248);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(193, 29);
+            this.label10.TabIndex = 49;
+            this.label10.Text = "Salario aspirado:";
+            // 
             // DepartamentoComboBox
             // 
             this.DepartamentoComboBox.FormattingEnabled = true;
@@ -450,26 +472,15 @@
             this.puestosLoading.TabStop = false;
             this.puestosLoading.Visible = false;
             // 
-            // label10
+            // groupBox3
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Georgia", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(16, 248);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(193, 29);
-            this.label10.TabIndex = 49;
-            this.label10.Text = "Salario aspirado:";
-            // 
-            // SalarioAspiradoTxtBox
-            // 
-            this.SalarioAspiradoTxtBox.Font = new System.Drawing.Font("Candara Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SalarioAspiradoTxtBox.Location = new System.Drawing.Point(258, 248);
-            this.SalarioAspiradoTxtBox.Name = "SalarioAspiradoTxtBox";
-            this.SalarioAspiradoTxtBox.PasswordChar = '*';
-            this.SalarioAspiradoTxtBox.Size = new System.Drawing.Size(250, 27);
-            this.SalarioAspiradoTxtBox.TabIndex = 23;
-            this.SalarioAspiradoTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SalarioAspiradoTxtBox_KeyPress);
+            this.groupBox3.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(850, 131);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(429, 217);
+            this.groupBox3.TabIndex = 42;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "3. IDIOMAS ";
             // 
             // CandidatoView
             // 
@@ -477,6 +488,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1306, 847);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
@@ -540,5 +552,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox SalarioAspiradoTxtBox;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }

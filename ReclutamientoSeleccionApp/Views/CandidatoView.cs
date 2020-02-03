@@ -121,10 +121,12 @@ namespace ReclutamientoSeleccionApp.Views
 
         private void NivelesDeRiesgoComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var puesto = (Puesto)PuestoComboBox.SelectedItem;
-            SalarioMaximoLabel.Text = Convert.ToString(puesto.SalarioMaximo);
-            SalarioMinimoLabel.Text = Convert.ToString(puesto.SalarioMinimo);
-            NivelDeRiesgoLabel.Text = Convert.ToString(puesto.NivelDeRiesgo);
+            if (PuestoComboBox.SelectedItem != null) {
+                var puesto = (Puesto)PuestoComboBox.SelectedItem;
+                SalarioMaximoLabel.Text = Convert.ToString(puesto.SalarioMaximo);
+                SalarioMinimoLabel.Text = Convert.ToString(puesto.SalarioMinimo);
+                NivelDeRiesgoLabel.Text = Convert.ToString(puesto.NivelDeRiesgo);
+            }
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
@@ -172,13 +174,20 @@ namespace ReclutamientoSeleccionApp.Views
         {
             showPuestosLoading();
             PuestoComboBox.Items.Clear();
-            var dept = (Departamento)DepartamentoComboBox.SelectedItem;
-            _puestos = (await _puestoService.GetActiveRecordsByDepartamento(dept.Id)).ToList();
-            foreach (var puesto in _puestos)
-            {
-                PuestoComboBox.Items.Add(puesto);
-                PuestoComboBox.DisplayMember = "Nombre";
-                PuestoComboBox.ValueMember = "Id";
+            PuestoComboBox.SelectedItem = null;
+            PuestoComboBox.Text = null;
+            SalarioMaximoLabel.Text = "";
+            SalarioMinimoLabel.Text = "";
+            NivelDeRiesgoLabel.Text = "";
+            if (DepartamentoComboBox.SelectedItem != null) {
+                var dept = (Departamento)DepartamentoComboBox.SelectedItem;
+                _puestos = (await _puestoService.GetActiveRecordsByDepartamento(dept.Id)).ToList();
+                foreach (var puesto in _puestos)
+                {
+                    PuestoComboBox.Items.Add(puesto);
+                    PuestoComboBox.DisplayMember = "Nombre";
+                    PuestoComboBox.ValueMember = "Id";
+                }
             }
             hidePuestosLoading();
         }
