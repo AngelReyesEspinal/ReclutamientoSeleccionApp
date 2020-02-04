@@ -17,14 +17,19 @@ namespace ReclutamientoSeleccionApp.Views
     {
         private readonly PuestoService _puestoService;
         private readonly DepartamentoService _departamentoService;
+        private readonly IdiomaService _idiomaService;
+        //
         private List<Puesto> _puestos;
-        private List<Departamento> _departmaentos;
+        private List<Departamento> _departamentos;
+        private List<Idioma> _idiomas;
         public CandidatoView()
         {
             InitializeComponent();
+            _idiomas = new List<Idioma>();
             _puestos = new List<Puesto>();
-            _departmaentos = new List<Departamento>();
+            _departamentos = new List<Departamento>();
             //
+            _idiomaService = new IdiomaService();
             _puestoService = new PuestoService();
             _departamentoService = new DepartamentoService();
             //CurrentUser.Nombre;
@@ -42,8 +47,15 @@ namespace ReclutamientoSeleccionApp.Views
 
         private async void CandidatoView_Load(object sender, EventArgs e)
         {
-            _departmaentos = (await _departamentoService.GetAll()).ToList();
-            foreach (var departamento in _departmaentos)
+            _idiomas = (await _idiomaService.GetActiveLanguages()).ToList();
+            _departamentos = (await _departamentoService.GetAll()).ToList();
+            foreach (var idioma in _idiomas)
+            {
+                checkedListBox1.Items.Add(idioma);
+                checkedListBox1.DisplayMember = "Nombre";
+                checkedListBox1.ValueMember = "Id";
+            }
+            foreach (var departamento in _departamentos)
             {
                 DepartamentoComboBox.Items.Add(departamento);
                 DepartamentoComboBox.DisplayMember = "Nombre";
@@ -204,6 +216,19 @@ namespace ReclutamientoSeleccionApp.Views
             {
                 e.Handled = true;
             }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            var idiomaView = new IdiomaView();
+            Hide();
+            idiomaView.Show();
+            Dispose();
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

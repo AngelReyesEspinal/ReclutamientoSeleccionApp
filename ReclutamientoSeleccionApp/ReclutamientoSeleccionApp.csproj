@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bl\Services\DepartamentoService.cs" />
+    <Compile Include="Bl\Services\IdiomaService.cs" />
     <Compile Include="Bl\Services\PuestoService.cs" />
     <Compile Include="Bl\Services\UserService.cs" />
     <Compile Include="Core\DataModel\CurrentUser\CurrentUser.cs" />
@@ -66,6 +67,10 @@
     <Compile Include="Migrations\202002021513298_Initial.cs" />
     <Compile Include="Migrations\202002021513298_Initial.designer.cs">
       <DependentUpon>202002021513298_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002040101161_estado to Idiomas.cs" />
+    <Compile Include="Migrations\202002040101161_estado to Idiomas.designer.cs">
+      <DependentUpon>202002040101161_estado to Idiomas.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Views\CandidatoView.cs">
@@ -79,6 +84,12 @@
     </Compile>
     <Compile Include="Views\DepartamentoView.Designer.cs">
       <DependentUpon>DepartamentoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\IdiomaView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\IdiomaView.Designer.cs">
+      <DependentUpon>IdiomaView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginView.cs">
       <SubType>Form</SubType>
@@ -120,11 +131,17 @@
     <EmbeddedResource Include="Migrations\202002021513298_Initial.resx">
       <DependentUpon>202002021513298_Initial.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002040101161_estado to Idiomas.resx">
+      <DependentUpon>202002040101161_estado to Idiomas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\CandidatoView.resx">
       <DependentUpon>CandidatoView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\DepartamentoView.resx">
       <DependentUpon>DepartamentoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\IdiomaView.resx">
+      <DependentUpon>IdiomaView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\LoginView.resx">
       <DependentUpon>LoginView.cs</DependentUpon>

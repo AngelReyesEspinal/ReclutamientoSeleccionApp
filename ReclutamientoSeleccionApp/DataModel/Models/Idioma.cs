@@ -1,4 +1,5 @@
 ﻿using ReclutamientoSeleccionApp.Core.DataModel.Base;
+using ReclutamientoSeleccionApp.Models.Codes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -12,5 +13,6 @@ namespace ReclutamientoSeleccionApp.Models
     public class Idioma : Base
     {
         public string Nombre { get; set; }
+        public Estado Estado { get; set; }
     }
 }
