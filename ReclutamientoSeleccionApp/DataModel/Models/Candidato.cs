@@ -24,6 +24,8 @@ namespace ReclutamientoSeleccionApp.Models
         public int PuestoId { get; set; }
         public int DepartamentoId { get; set; }
         public int DatoPersonalId { get; set; }
+        public int UserId { get; set; }
+        public virtual User User { get; set; }
         public virtual Puesto Puesto { get; set; }
         public virtual Departamento Departamento { get; set; }
         public virtual DatoPersonal DatoPersonal { get; set; }

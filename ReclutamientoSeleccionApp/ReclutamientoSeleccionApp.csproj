@@ -57,12 +57,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bl\Services\CompetenciaService.cs" />
     <Compile Include="Bl\Services\DepartamentoService.cs" />
     <Compile Include="Bl\Services\IdiomaService.cs" />
     <Compile Include="Bl\Services\PuestoService.cs" />
     <Compile Include="Bl\Services\UserService.cs" />
     <Compile Include="Core\DataModel\CurrentUser\CurrentUser.cs" />
     <Compile Include="Core\Repository\BaseRepository.cs" />
+    <Compile Include="DataModel\Dtos\CompetenciaDto.cs" />
     <Compile Include="DataModel\Dtos\PuestoDto.cs" />
     <Compile Include="Migrations\202002021513298_Initial.cs" />
     <Compile Include="Migrations\202002021513298_Initial.designer.cs">
@@ -72,12 +74,38 @@
     <Compile Include="Migrations\202002040101161_estado to Idiomas.designer.cs">
       <DependentUpon>202002040101161_estado to Idiomas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002082159091_agregando creado por en candidato.cs" />
+    <Compile Include="Migrations\202002082159091_agregando creado por en candidato.designer.cs">
+      <DependentUpon>202002082159091_agregando creado por en candidato.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002082308429_adding many to many relationships.cs" />
+    <Compile Include="Migrations\202002082308429_adding many to many relationships.designer.cs">
+      <DependentUpon>202002082308429_adding many to many relationships.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002082333199_estado en competenca.cs" />
+    <Compile Include="Migrations\202002082333199_estado en competenca.designer.cs">
+      <DependentUpon>202002082333199_estado en competenca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002082336375_creando dependencia en empleado de candidato.cs" />
+    <Compile Include="Migrations\202002082336375_creando dependencia en empleado de candidato.designer.cs">
+      <DependentUpon>202002082336375_creando dependencia en empleado de candidato.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002090003242_update.cs" />
+    <Compile Include="Migrations\202002090003242_update.designer.cs">
+      <DependentUpon>202002090003242_update.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Views\CandidatoView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\CandidatoView.Designer.cs">
       <DependentUpon>CandidatoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CompetenciaView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CompetenciaView.Designer.cs">
+      <DependentUpon>CompetenciaView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\DepartamentoView.cs">
       <SubType>Form</SubType>
@@ -134,8 +162,26 @@
     <EmbeddedResource Include="Migrations\202002040101161_estado to Idiomas.resx">
       <DependentUpon>202002040101161_estado to Idiomas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002082159091_agregando creado por en candidato.resx">
+      <DependentUpon>202002082159091_agregando creado por en candidato.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002082308429_adding many to many relationships.resx">
+      <DependentUpon>202002082308429_adding many to many relationships.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002082333199_estado en competenca.resx">
+      <DependentUpon>202002082333199_estado en competenca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002082336375_creando dependencia en empleado de candidato.resx">
+      <DependentUpon>202002082336375_creando dependencia en empleado de candidato.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002090003242_update.resx">
+      <DependentUpon>202002090003242_update.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\CandidatoView.resx">
       <DependentUpon>CandidatoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CompetenciaView.resx">
+      <DependentUpon>CompetenciaView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\DepartamentoView.resx">
       <DependentUpon>DepartamentoView.cs</DependentUpon>

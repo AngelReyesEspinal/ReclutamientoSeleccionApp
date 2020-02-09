@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IdiomaView));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -38,12 +39,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
             this.limpiarbtn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button8 = new System.Windows.Forms.Button();
             this.NombreTxtBox = new System.Windows.Forms.TextBox();
             this.label = new System.Windows.Forms.Label();
@@ -51,9 +54,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.EstadosComboBox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -74,6 +74,21 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(263, 574);
             this.panel1.TabIndex = 24;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Maroon;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button2.Location = new System.Drawing.Point(0, 332);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(183, 40);
+            this.button2.TabIndex = 25;
+            this.button2.Text = "IDIOMAS";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button6
             // 
@@ -130,6 +145,7 @@
             this.button3.TabIndex = 21;
             this.button3.Text = "CANDIDATOS";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // pictureBox1
             // 
@@ -170,21 +186,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(702, 10);
             this.panel2.TabIndex = 25;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Maroon;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(0, 332);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(183, 40);
-            this.button2.TabIndex = 25;
-            this.button2.Text = "IDIOMAS";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // limpiarbtn
             // 
@@ -238,9 +239,9 @@
             this.label6.ForeColor = System.Drawing.Color.Brown;
             this.label6.Location = new System.Drawing.Point(303, 373);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(216, 34);
+            this.label6.Size = new System.Drawing.Size(122, 34);
             this.label6.TabIndex = 57;
-            this.label6.Text = "Departamentos";
+            this.label6.Text = "Idiomas";
             // 
             // dataGridView1
             // 
@@ -253,6 +254,25 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(348, 112);
             this.dataGridView1.TabIndex = 56;
+            // 
+            // Nombre
+            // 
+            this.Nombre.DataPropertyName = "Nombre";
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
+            // 
+            // Estado
+            // 
+            this.Estado.DataPropertyName = "Estado";
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
             // 
             // button8
             // 
@@ -333,25 +353,6 @@
             this.label5.TabIndex = 63;
             this.label5.Text = "Estado:";
             this.label5.Click += new System.EventHandler(this.label5_Click);
-            // 
-            // Nombre
-            // 
-            this.Nombre.DataPropertyName = "Nombre";
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.Visible = false;
-            // 
-            // Estado
-            // 
-            this.Estado.DataPropertyName = "Estado";
-            this.Estado.HeaderText = "Estado";
-            this.Estado.Name = "Estado";
             // 
             // IdiomaView
             // 

@@ -17,20 +17,24 @@ namespace ReclutamientoSeleccionApp.Views
     {
         private readonly PuestoService _puestoService;
         private readonly DepartamentoService _departamentoService;
+        private readonly CompetenciaService _competenciaService;
         private readonly IdiomaService _idiomaService;
         //
         private List<Puesto> _puestos;
         private List<Departamento> _departamentos;
         private List<Idioma> _idiomas;
+        private List<Competencia> _competencias;
         public CandidatoView()
         {
             InitializeComponent();
             _idiomas = new List<Idioma>();
             _puestos = new List<Puesto>();
+            _competencias = new List<Competencia>();
             _departamentos = new List<Departamento>();
             //
             _idiomaService = new IdiomaService();
             _puestoService = new PuestoService();
+            _competenciaService = new CompetenciaService();
             _departamentoService = new DepartamentoService();
             //CurrentUser.Nombre;
         }
@@ -131,13 +135,25 @@ namespace ReclutamientoSeleccionApp.Views
             Dispose();
         }
 
-        private void NivelesDeRiesgoComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private async void NivelesDeRiesgoComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (PuestoComboBox.SelectedItem != null) {
                 var puesto = (Puesto)PuestoComboBox.SelectedItem;
                 SalarioMaximoLabel.Text = Convert.ToString(puesto.SalarioMaximo);
                 SalarioMinimoLabel.Text = Convert.ToString(puesto.SalarioMinimo);
                 NivelDeRiesgoLabel.Text = Convert.ToString(puesto.NivelDeRiesgo);
+                //                
+                var competencias = (await _competenciaService.GetActiveByPuesto(puesto.Id)).ToList();
+                CompetenciasListBox2.Items.Clear();
+                CompetenciasListBox2.SelectedItem = null;
+                CompetenciasListBox2.Text = null;
+                foreach (var competencia in competencias)
+                {
+                    CompetenciasListBox2.Items.Add(competencia);
+                    CompetenciasListBox2.DisplayMember = "Descripcion";
+                    CompetenciasListBox2.ValueMember = "Id";
+                }
+
             }
         }
 
@@ -182,19 +198,23 @@ namespace ReclutamientoSeleccionApp.Views
             Dispose();
         }
 
-        private async void DepartamentoComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void DepartamentoComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             showPuestosLoading();
             PuestoComboBox.Items.Clear();
             PuestoComboBox.SelectedItem = null;
             PuestoComboBox.Text = null;
+
+            CompetenciasListBox2.Items.Clear();
+            CompetenciasListBox2.SelectedItem = null;
+            CompetenciasListBox2.Text = null;
+
             SalarioMaximoLabel.Text = "";
             SalarioMinimoLabel.Text = "";
             NivelDeRiesgoLabel.Text = "";
             if (DepartamentoComboBox.SelectedItem != null) {
                 var dept = (Departamento)DepartamentoComboBox.SelectedItem;
-                _puestos = (await _puestoService.GetActiveRecordsByDepartamento(dept.Id)).ToList();
-                foreach (var puesto in _puestos)
+                foreach (var puesto in dept.Puestos.ToList())
                 {
                     PuestoComboBox.Items.Add(puesto);
                     PuestoComboBox.DisplayMember = "Nombre";
@@ -229,6 +249,19 @@ namespace ReclutamientoSeleccionApp.Views
         private void groupBox3_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            var competenciaView = new CompetenciaView();
+            Hide();
+            competenciaView.Show();
+            Dispose();
+        }
+
+        private void CompetenciasListBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // aqui
         }
     }
 }

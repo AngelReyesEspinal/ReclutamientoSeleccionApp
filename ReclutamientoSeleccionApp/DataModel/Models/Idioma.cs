@@ -12,7 +12,12 @@ namespace ReclutamientoSeleccionApp.Models
     [Table("Idiomas", Schema = "dbo")]
     public class Idioma : Base
     {
+        public Idioma()
+        {
+            Candidatos = new HashSet<Candidato>();
+        }
         public string Nombre { get; set; }
         public Estado Estado { get; set; }
+        public virtual ICollection<Candidato> Candidatos { get; set; }
     }
 }

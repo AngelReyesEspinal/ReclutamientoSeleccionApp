@@ -11,6 +11,10 @@ namespace ReclutamientoSeleccionApp.Models
     [Table("Capacitaciones", Schema = "dbo")]
     public class Capacitacion : Base
     {
+        public Capacitacion()
+        {
+            Candidatos = new HashSet<Candidato>();
+        }
         public string Descripcion { get; set; }
         public DateTime FechaDesde { get; set; }
         public DateTime FechaHasta { get; set; }
@@ -18,6 +22,7 @@ namespace ReclutamientoSeleccionApp.Models
         public int InstitucionId { get; set; }
         public virtual Nivel Nivel { get; set; }
         public virtual Institucion Institucion { get; set; }
+        public virtual ICollection<Candidato> Candidatos { get; set; }
     }
 }
 

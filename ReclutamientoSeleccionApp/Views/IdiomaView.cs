@@ -198,5 +198,13 @@ namespace ReclutamientoSeleccionApp.Views
             MessageBox.Show("Se " + accionRealizada + " correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
             hideLoading();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var candidatoView = new CandidatoView();
+            Hide();
+            candidatoView.Show();
+            Dispose();
+        }
     }
 }
