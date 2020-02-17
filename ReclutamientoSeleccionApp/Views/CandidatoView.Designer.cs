@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CandidatoView));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -70,6 +73,9 @@
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.CompetenciasListBox2 = new System.Windows.Forms.CheckedListBox();
+            this.CapacitacionesListBox2 = new System.Windows.Forms.CheckedListBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.button12 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -79,11 +85,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.puestosLoading)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Maroon;
+            this.panel1.Controls.Add(this.button12);
+            this.panel1.Controls.Add(this.button11);
+            this.panel1.Controls.Add(this.button10);
+            this.panel1.Controls.Add(this.button9);
             this.panel1.Controls.Add(this.button8);
             this.panel1.Controls.Add(this.button7);
             this.panel1.Controls.Add(this.button6);
@@ -93,9 +104,54 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(263, 847);
+            this.panel1.Size = new System.Drawing.Size(273, 847);
             this.panel1.TabIndex = 18;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // button11
+            // 
+            this.button11.BackColor = System.Drawing.Color.Maroon;
+            this.button11.FlatAppearance.BorderSize = 0;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button11.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button11.Location = new System.Drawing.Point(56, 550);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(217, 40);
+            this.button11.TabIndex = 30;
+            this.button11.Text = "➣ INSTITUCIONES";
+            this.button11.UseVisualStyleBackColor = false;
+            this.button11.Click += new System.EventHandler(this.button11_Click_1);
+            // 
+            // button10
+            // 
+            this.button10.BackColor = System.Drawing.Color.Maroon;
+            this.button10.FlatAppearance.BorderSize = 0;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button10.Location = new System.Drawing.Point(59, 504);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(150, 40);
+            this.button10.TabIndex = 29;
+            this.button10.Text = "➣ NIVELES";
+            this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.Color.Maroon;
+            this.button9.FlatAppearance.BorderSize = 0;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button9.Location = new System.Drawing.Point(0, 467);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(253, 40);
+            this.button9.TabIndex = 28;
+            this.button9.Text = "CAPACITACIONES";
+            this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button8
             // 
@@ -104,7 +160,7 @@
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button8.Location = new System.Drawing.Point(3, 378);
+            this.button8.Location = new System.Drawing.Point(3, 421);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(228, 40);
             this.button8.TabIndex = 27;
@@ -119,7 +175,7 @@
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button7.Location = new System.Drawing.Point(-3, 332);
+            this.button7.Location = new System.Drawing.Point(-3, 375);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(183, 40);
             this.button7.TabIndex = 26;
@@ -149,7 +205,7 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button5.Location = new System.Drawing.Point(3, 286);
+            this.button5.Location = new System.Drawing.Point(3, 329);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(183, 40);
             this.button5.TabIndex = 23;
@@ -164,7 +220,7 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button4.Location = new System.Drawing.Point(3, 240);
+            this.button4.Location = new System.Drawing.Point(3, 283);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(250, 40);
             this.button4.TabIndex = 22;
@@ -224,7 +280,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Candara", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(744, 773);
+            this.button1.Location = new System.Drawing.Point(814, 753);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(274, 62);
             this.button1.TabIndex = 15;
@@ -269,7 +325,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(1243, 21);
+            this.pictureBox2.Location = new System.Drawing.Point(1736, 21);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(51, 36);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -284,7 +340,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Candara", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(417, 773);
+            this.button2.Location = new System.Drawing.Point(487, 753);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(274, 62);
             this.button2.TabIndex = 20;
@@ -303,7 +359,7 @@
             // loading
             // 
             this.loading.Image = ((System.Drawing.Image)(resources.GetObject("loading.Image")));
-            this.loading.Location = new System.Drawing.Point(982, 730);
+            this.loading.Location = new System.Drawing.Point(1052, 710);
             this.loading.Name = "loading";
             this.loading.Size = new System.Drawing.Size(177, 157);
             this.loading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -539,9 +595,9 @@
             // 
             this.groupBox3.Controls.Add(this.checkedListBox1);
             this.groupBox3.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(850, 131);
+            this.groupBox3.Location = new System.Drawing.Point(1305, 131);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(429, 217);
+            this.groupBox3.Size = new System.Drawing.Size(429, 259);
             this.groupBox3.TabIndex = 42;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "3. IDIOMAS ";
@@ -552,16 +608,16 @@
             this.checkedListBox1.FormattingEnabled = true;
             this.checkedListBox1.Location = new System.Drawing.Point(18, 28);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(390, 172);
+            this.checkedListBox1.Size = new System.Drawing.Size(390, 196);
             this.checkedListBox1.TabIndex = 0;
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.CompetenciasListBox2);
             this.groupBox4.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(850, 378);
+            this.groupBox4.Location = new System.Drawing.Point(850, 432);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(429, 217);
+            this.groupBox4.Size = new System.Drawing.Size(429, 283);
             this.groupBox4.TabIndex = 43;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "4. COMPETENCIAS";
@@ -571,16 +627,51 @@
             this.CompetenciasListBox2.FormattingEnabled = true;
             this.CompetenciasListBox2.Location = new System.Drawing.Point(18, 28);
             this.CompetenciasListBox2.Name = "CompetenciasListBox2";
-            this.CompetenciasListBox2.Size = new System.Drawing.Size(390, 172);
+            this.CompetenciasListBox2.Size = new System.Drawing.Size(390, 220);
             this.CompetenciasListBox2.TabIndex = 0;
             this.CompetenciasListBox2.SelectedIndexChanged += new System.EventHandler(this.CompetenciasListBox2_SelectedIndexChanged);
+            // 
+            // CapacitacionesListBox2
+            // 
+            this.CapacitacionesListBox2.FormattingEnabled = true;
+            this.CapacitacionesListBox2.Location = new System.Drawing.Point(18, 28);
+            this.CapacitacionesListBox2.Name = "CapacitacionesListBox2";
+            this.CapacitacionesListBox2.Size = new System.Drawing.Size(390, 196);
+            this.CapacitacionesListBox2.TabIndex = 0;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.CapacitacionesListBox2);
+            this.groupBox5.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.Location = new System.Drawing.Point(850, 131);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(429, 259);
+            this.groupBox5.TabIndex = 44;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "4. CAPACITACIONES";
+            // 
+            // button12
+            // 
+            this.button12.BackColor = System.Drawing.Color.Maroon;
+            this.button12.FlatAppearance.BorderSize = 0;
+            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button12.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button12.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button12.Location = new System.Drawing.Point(29, 237);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(250, 40);
+            this.button12.TabIndex = 31;
+            this.button12.Text = "EXPERIENCIA LABORAL";
+            this.button12.UseVisualStyleBackColor = false;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // CandidatoView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1306, 847);
+            this.ClientSize = new System.Drawing.Size(1813, 833);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -608,6 +699,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.puestosLoading)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -656,5 +748,11 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.CheckedListBox CompetenciasListBox2;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.CheckedListBox CapacitacionesListBox2;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button button12;
     }
 }

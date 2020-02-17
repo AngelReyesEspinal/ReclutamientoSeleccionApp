@@ -211,5 +211,21 @@ namespace ReclutamientoSeleccionApp.Views
             MessageBox.Show("Se " + accionRealizada + " correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
             hideLoading();
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            var competenciaView = new CompetenciaView();
+            Hide();
+            competenciaView.Show();
+            Dispose();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            var idiomaView = new IdiomaView();
+            Hide();
+            idiomaView.Show();
+            Dispose();
+        }
     }
 }

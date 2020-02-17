@@ -71,7 +71,7 @@ namespace ReclutamientoSeleccionApp.Views
             if (DepartamentoComboBox.SelectedItem != null)
             {
                 var dept = (Departamento)DepartamentoComboBox.SelectedItem;
-                updatePuestos(dept.Puestos.ToList());
+                updatePuestos(dept.Puestos.Where(x => !x.Deleted).ToList());
             }
         }
 
@@ -202,6 +202,51 @@ namespace ReclutamientoSeleccionApp.Views
                     : accionRealizada = "ha eliminado el registro";
             MessageBox.Show("Se " + accionRealizada + " correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
             hideLoading();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var candidatoView = new CandidatoView();
+            Hide();
+            candidatoView.Show();
+            Dispose();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var deptarmentoView = new DepartamentoView();
+            Hide();
+            deptarmentoView.Show();
+            Dispose();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            var puestoView = new PuestoView();
+            Hide();
+            puestoView.Show();
+            Dispose();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var idiomaView = new IdiomaView();
+            Hide();
+            idiomaView.Show();
+            Dispose();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            var competenciaView = new CompetenciaView();
+            Hide();
+            competenciaView.Show();
+            Dispose();
         }
     }
 }

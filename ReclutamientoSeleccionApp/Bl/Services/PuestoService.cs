@@ -33,7 +33,12 @@ namespace ReclutamientoSeleccionApp.Bl.Services.UserService
                 return _context.Puestos.Where(x => !x.Deleted && (x.Estado == Models.Codes.Estado.Activo && x.DepartamentoId == Departamento)).AsQueryable();
             });
         }
-
+        public async Task<bool> ValidateIfHasCompetencias(int departamentoId)
+        {
+            return await Task.Run(() => {
+                return _context.Competencias.Any(x => !x.Deleted && x.PuestoId == departamentoId);
+            });
+        }
         public async Task<bool> ValidateIfExist(string name, int deptId)
         {
             return await Task.Run(() => {

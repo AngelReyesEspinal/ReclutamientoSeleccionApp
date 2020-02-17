@@ -15,7 +15,7 @@ namespace ReclutamientoSeleccionApp.Models
         {
             Capacitaciones = new HashSet<Capacitacion>();
         }
-        public int Descripcion { get; set; }
+        public string Titulo { get; set; }
         public virtual ICollection<Capacitacion> Capacitaciones { get; set; }
     }
 }

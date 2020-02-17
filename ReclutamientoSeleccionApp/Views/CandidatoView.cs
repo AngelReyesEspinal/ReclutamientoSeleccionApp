@@ -18,6 +18,7 @@ namespace ReclutamientoSeleccionApp.Views
         private readonly PuestoService _puestoService;
         private readonly DepartamentoService _departamentoService;
         private readonly CompetenciaService _competenciaService;
+        private readonly CapacitacionService _capacitacionService;
         private readonly IdiomaService _idiomaService;
         //
         private List<Puesto> _puestos;
@@ -36,6 +37,7 @@ namespace ReclutamientoSeleccionApp.Views
             _puestoService = new PuestoService();
             _competenciaService = new CompetenciaService();
             _departamentoService = new DepartamentoService();
+            _capacitacionService = new CapacitacionService();
             //CurrentUser.Nombre;
         }
 
@@ -142,6 +144,18 @@ namespace ReclutamientoSeleccionApp.Views
                 SalarioMaximoLabel.Text = Convert.ToString(puesto.SalarioMaximo);
                 SalarioMinimoLabel.Text = Convert.ToString(puesto.SalarioMinimo);
                 NivelDeRiesgoLabel.Text = Convert.ToString(puesto.NivelDeRiesgo);
+                //
+                var capacitaciones = (await _capacitacionService.GetActiveByPuesto(puesto.Id)).ToList();
+                CapacitacionesListBox2.Items.Clear();
+                CapacitacionesListBox2.SelectedItem = null;
+                CapacitacionesListBox2.Text = null;
+                foreach (var competencia in capacitaciones)
+                {
+                    competencia.Descripcion = competencia.Descripcion + " (" +  competencia.Nivel.Titulo + ")";
+                    CapacitacionesListBox2.Items.Add(competencia);
+                    CapacitacionesListBox2.DisplayMember = "Descripcion";
+                    CapacitacionesListBox2.ValueMember = "Id";
+                }
                 //                
                 var competencias = (await _competenciaService.GetActiveByPuesto(puesto.Id)).ToList();
                 CompetenciasListBox2.Items.Clear();
@@ -153,7 +167,6 @@ namespace ReclutamientoSeleccionApp.Views
                     CompetenciasListBox2.DisplayMember = "Descripcion";
                     CompetenciasListBox2.ValueMember = "Id";
                 }
-
             }
         }
 
@@ -201,9 +214,14 @@ namespace ReclutamientoSeleccionApp.Views
         private void DepartamentoComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             showPuestosLoading();
+
             PuestoComboBox.Items.Clear();
             PuestoComboBox.SelectedItem = null;
             PuestoComboBox.Text = null;
+
+            CapacitacionesListBox2.Items.Clear();
+            CapacitacionesListBox2.SelectedItem = null;
+            CapacitacionesListBox2.Text = null;
 
             CompetenciasListBox2.Items.Clear();
             CompetenciasListBox2.SelectedItem = null;
@@ -212,9 +230,10 @@ namespace ReclutamientoSeleccionApp.Views
             SalarioMaximoLabel.Text = "";
             SalarioMinimoLabel.Text = "";
             NivelDeRiesgoLabel.Text = "";
+
             if (DepartamentoComboBox.SelectedItem != null) {
                 var dept = (Departamento)DepartamentoComboBox.SelectedItem;
-                foreach (var puesto in dept.Puestos.ToList())
+                foreach (var puesto in dept.Puestos.Where(x => !x.Deleted).ToList())
                 {
                     PuestoComboBox.Items.Add(puesto);
                     PuestoComboBox.DisplayMember = "Nombre";
@@ -262,6 +281,43 @@ namespace ReclutamientoSeleccionApp.Views
         private void CompetenciasListBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             // aqui
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            var capacitacionView = new CapacitacionView();
+            Hide();
+            capacitacionView.Show();
+            Dispose();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            var nivelView = new NivelView();
+            Hide();
+            nivelView.Show();
+            Dispose();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            var institucionView = new InstitucionView();
+            Hide();
+            institucionView.Show();
+            Dispose();
+        }
+
+        private void button11_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            var experienciaLaboralView = new ExperienciaLaboralView();
+            Hide();
+            experienciaLaboralView.Show();
+            Dispose();
         }
     }
 }

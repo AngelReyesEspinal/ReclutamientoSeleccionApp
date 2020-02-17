@@ -57,9 +57,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bl\Services\CapacitacionService.cs" />
     <Compile Include="Bl\Services\CompetenciaService.cs" />
     <Compile Include="Bl\Services\DepartamentoService.cs" />
     <Compile Include="Bl\Services\IdiomaService.cs" />
+    <Compile Include="Bl\Services\InstitucionService.cs" />
+    <Compile Include="Bl\Services\NivelService.cs" />
     <Compile Include="Bl\Services\PuestoService.cs" />
     <Compile Include="Bl\Services\UserService.cs" />
     <Compile Include="Core\DataModel\CurrentUser\CurrentUser.cs" />
@@ -94,12 +97,34 @@
     <Compile Include="Migrations\202002090003242_update.designer.cs">
       <DependentUpon>202002090003242_update.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002161829565_m.cs" />
+    <Compile Include="Migrations\202002161829565_m.designer.cs">
+      <DependentUpon>202002161829565_m.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002162047208_ma.cs" />
+    <Compile Include="Migrations\202002162047208_ma.designer.cs">
+      <DependentUpon>202002162047208_ma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002170022066_institucion.cs" />
+    <Compile Include="Migrations\202002170022066_institucion.designer.cs">
+      <DependentUpon>202002170022066_institucion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002170024024_eliminando candidato de experiencia.cs" />
+    <Compile Include="Migrations\202002170024024_eliminando candidato de experiencia.designer.cs">
+      <DependentUpon>202002170024024_eliminando candidato de experiencia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Views\CandidatoView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\CandidatoView.Designer.cs">
       <DependentUpon>CandidatoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CapacitacionView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CapacitacionView.Designer.cs">
+      <DependentUpon>CapacitacionView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\CompetenciaView.cs">
       <SubType>Form</SubType>
@@ -113,11 +138,23 @@
     <Compile Include="Views\DepartamentoView.Designer.cs">
       <DependentUpon>DepartamentoView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ExperienciaLaboralView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ExperienciaLaboralView.Designer.cs">
+      <DependentUpon>ExperienciaLaboralView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\IdiomaView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\IdiomaView.Designer.cs">
       <DependentUpon>IdiomaView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InstitucionView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\InstitucionView.Designer.cs">
+      <DependentUpon>InstitucionView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginView.cs">
       <SubType>Form</SubType>
@@ -134,7 +171,6 @@
     <Compile Include="DataModel\Models\Departamento.cs" />
     <Compile Include="DataModel\Models\Empleado.cs" />
     <Compile Include="DataModel\Enums\Codes.cs" />
-    <Compile Include="DataModel\Models\Empresa.cs" />
     <Compile Include="DataModel\Models\ExperienciaLaboral.cs" />
     <Compile Include="DataModel\Models\Idioma.cs" />
     <Compile Include="DataModel\Models\Institucion.cs" />
@@ -144,6 +180,12 @@
     <Compile Include="DataModel\Models\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\NivelView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\NivelView.Designer.cs">
+      <DependentUpon>NivelView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\PuestoView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,8 +219,23 @@
     <EmbeddedResource Include="Migrations\202002090003242_update.resx">
       <DependentUpon>202002090003242_update.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002161829565_m.resx">
+      <DependentUpon>202002161829565_m.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002162047208_ma.resx">
+      <DependentUpon>202002162047208_ma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002170022066_institucion.resx">
+      <DependentUpon>202002170022066_institucion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002170024024_eliminando candidato de experiencia.resx">
+      <DependentUpon>202002170024024_eliminando candidato de experiencia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\CandidatoView.resx">
       <DependentUpon>CandidatoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CapacitacionView.resx">
+      <DependentUpon>CapacitacionView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\CompetenciaView.resx">
       <DependentUpon>CompetenciaView.cs</DependentUpon>
@@ -186,8 +243,14 @@
     <EmbeddedResource Include="Views\DepartamentoView.resx">
       <DependentUpon>DepartamentoView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\ExperienciaLaboralView.resx">
+      <DependentUpon>ExperienciaLaboralView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\IdiomaView.resx">
       <DependentUpon>IdiomaView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\InstitucionView.resx">
+      <DependentUpon>InstitucionView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\LoginView.resx">
       <DependentUpon>LoginView.cs</DependentUpon>
@@ -201,6 +264,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\NivelView.resx">
+      <DependentUpon>NivelView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\PuestoView.resx">
       <DependentUpon>PuestoView.cs</DependentUpon>
     </EmbeddedResource>

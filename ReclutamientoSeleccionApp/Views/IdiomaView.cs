@@ -206,5 +206,13 @@ namespace ReclutamientoSeleccionApp.Views
             candidatoView.Show();
             Dispose();
         }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            var competenciaView = new CompetenciaView();
+            Hide();
+            competenciaView.Show();
+            Dispose();
+        }
     }
 }

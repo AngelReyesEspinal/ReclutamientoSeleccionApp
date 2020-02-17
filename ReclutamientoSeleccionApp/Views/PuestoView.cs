@@ -234,11 +234,34 @@ namespace ReclutamientoSeleccionApp.Views
                     MessageBoxIcon.Warning);
                 return;
             }
+
             showLoading();
+            bool hayPuestosConCompetencias = false;
+            
             var rowsIndex = new List<int>();
             for (int i = 0; i < dataGridView1.SelectedRows.Count; i++) {
                 rowsIndex.Add(Convert.ToInt32(dataGridView1.SelectedRows[i].Cells["Id"].FormattedValue.ToString()));
             }
+
+            foreach (var deptId in rowsIndex)
+            {
+                if (await _puestoService.ValidateIfHasCompetencias(deptId))
+                {
+                    var dpt = _puestoService.GetById(deptId).Nombre;
+                    hayPuestosConCompetencias = true;
+                    MessageBox.Show("El puesto " + dpt + " no se puede eliminar pues posee competencias activas",
+                           "Atención",
+                           MessageBoxButtons.OK,
+                           MessageBoxIcon.Warning);
+                }
+            }
+
+            if (hayPuestosConCompetencias)
+            {
+                hideLoading();
+                return;
+            }
+
             await _puestoService.DeleteManyAsync((await _puestoService.GetAllByIds(rowsIndex)).ToList());
             update_dataGridView();
             string accionRealizada = dataGridView1.SelectedRows.Count > 1
@@ -314,6 +337,22 @@ namespace ReclutamientoSeleccionApp.Views
             {
                 e.Handled = true;
             }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            var idiomaView = new IdiomaView();
+            Hide();
+            idiomaView.Show();
+            Dispose();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            var competenciaView = new CompetenciaView();
+            Hide();
+            competenciaView.Show();
+            Dispose();
         }
     }
 }

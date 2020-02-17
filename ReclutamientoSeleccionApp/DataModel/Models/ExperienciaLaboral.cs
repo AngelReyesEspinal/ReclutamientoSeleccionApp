@@ -11,17 +11,13 @@ namespace ReclutamientoSeleccionApp.Models
     [Table("ExperienciasLaborales", Schema = "dbo")]
     public class ExperienciaLaboral : Base
     {
-        public ExperienciaLaboral()
-        {
-            Candidatos = new HashSet<Candidato>();
-        }
         public string PuestoOcupado { get; set; }
         public decimal Salario { get; set; }
         public DateTime FechaDesde { get; set; }
         public DateTime FechaHasta { get; set; }
-        public int EmpresaId { get; set; }
-        public Empresa Empresa { get; set; }
-        public virtual ICollection<Candidato> Candidatos { get; set; }
-
+        public int InstitucionId { get; set; }
+        public int UserId { get; set; }
+        public Institucion Institucion { get; set; }
+        public virtual User User { get; set; }
     }
 }
