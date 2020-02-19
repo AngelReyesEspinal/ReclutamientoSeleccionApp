@@ -30,8 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExperienciaLaboralView));
             this.NombreTxtBox = new System.Windows.Forms.TextBox();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.limpiarbtn = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -58,8 +56,15 @@
             this.label5 = new System.Windows.Forms.Label();
             this.fechaHasta = new System.Windows.Forms.DateTimePicker();
             this.fechaDesde = new System.Windows.Forms.DateTimePicker();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.SalarioTxtBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Puesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Salario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Empresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Desde = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hasta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InstitucionId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -75,19 +80,6 @@
             this.NombreTxtBox.Size = new System.Drawing.Size(434, 27);
             this.NombreTxtBox.TabIndex = 58;
             // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.Visible = false;
-            // 
-            // Nombre
-            // 
-            this.Nombre.DataPropertyName = "Nombre";
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            // 
             // limpiarbtn
             // 
             this.limpiarbtn.BackColor = System.Drawing.Color.Maroon;
@@ -101,6 +93,7 @@
             this.limpiarbtn.TabIndex = 65;
             this.limpiarbtn.Text = "Limpiar";
             this.limpiarbtn.UseVisualStyleBackColor = false;
+            this.limpiarbtn.Click += new System.EventHandler(this.limpiarbtn_Click);
             // 
             // button5
             // 
@@ -109,12 +102,13 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Candara", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button5.Location = new System.Drawing.Point(821, 600);
+            this.button5.Location = new System.Drawing.Point(858, 600);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(162, 45);
             this.button5.TabIndex = 64;
             this.button5.Text = "Eliminar";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button2
             // 
@@ -123,12 +117,13 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Candara", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(653, 600);
+            this.button2.Location = new System.Drawing.Point(861, 537);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(162, 45);
             this.button2.TabIndex = 63;
             this.button2.Text = "Seleccionar";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label6
             // 
@@ -145,11 +140,16 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Nombre,
-            this.Id});
+            this.Id,
+            this.Puesto,
+            this.Salario,
+            this.Empresa,
+            this.Desde,
+            this.Hasta,
+            this.InstitucionId});
             this.dataGridView1.Location = new System.Drawing.Point(298, 533);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(348, 112);
+            this.dataGridView1.Size = new System.Drawing.Size(554, 112);
             this.dataGridView1.TabIndex = 61;
             // 
             // button1
@@ -165,6 +165,7 @@
             this.button1.TabIndex = 60;
             this.button1.Text = "Guardar";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
             // 
@@ -197,6 +198,7 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 56;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // panel2
             // 
@@ -393,13 +395,13 @@
             this.fechaDesde.Size = new System.Drawing.Size(200, 20);
             this.fechaDesde.TabIndex = 113;
             // 
-            // textBox1
+            // SalarioTxtBox
             // 
-            this.textBox1.Font = new System.Drawing.Font("Candara Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(540, 387);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(434, 27);
-            this.textBox1.TabIndex = 118;
+            this.SalarioTxtBox.Font = new System.Drawing.Font("Candara Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SalarioTxtBox.Location = new System.Drawing.Point(540, 387);
+            this.SalarioTxtBox.Name = "SalarioTxtBox";
+            this.SalarioTxtBox.Size = new System.Drawing.Size(434, 27);
+            this.SalarioTxtBox.TabIndex = 118;
             // 
             // label3
             // 
@@ -412,13 +414,57 @@
             this.label3.TabIndex = 117;
             this.label3.Text = "Salario ocupado:";
             // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
+            // 
+            // Puesto
+            // 
+            this.Puesto.DataPropertyName = "PuestoOcupado";
+            this.Puesto.HeaderText = "Puesto";
+            this.Puesto.Name = "Puesto";
+            // 
+            // Salario
+            // 
+            this.Salario.DataPropertyName = "Salario";
+            this.Salario.HeaderText = "Salario";
+            this.Salario.Name = "Salario";
+            // 
+            // Empresa
+            // 
+            this.Empresa.DataPropertyName = "NombreInstitucion";
+            this.Empresa.HeaderText = "Empresa";
+            this.Empresa.Name = "Empresa";
+            // 
+            // Desde
+            // 
+            this.Desde.DataPropertyName = "FechaDesde";
+            this.Desde.HeaderText = "Desde";
+            this.Desde.Name = "Desde";
+            // 
+            // Hasta
+            // 
+            this.Hasta.DataPropertyName = "FechaHasta";
+            this.Hasta.HeaderText = "Hasta";
+            this.Hasta.Name = "Hasta";
+            // 
+            // InstitucionId
+            // 
+            this.InstitucionId.DataPropertyName = "InstitucionId";
+            this.InstitucionId.HeaderText = "InstitucionId";
+            this.InstitucionId.Name = "InstitucionId";
+            this.InstitucionId.Visible = false;
+            // 
             // ExperienciaLaboralView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1035, 672);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.SalarioTxtBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label5);
@@ -444,6 +490,7 @@
             this.Name = "ExperienciaLaboralView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ExperienciaLaboralView";
+            this.Load += new System.EventHandler(this.ExperienciaLaboralView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -457,8 +504,6 @@
         #endregion
 
         private System.Windows.Forms.TextBox NombreTxtBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.Button limpiarbtn;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button2;
@@ -485,7 +530,14 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker fechaHasta;
         private System.Windows.Forms.DateTimePicker fechaDesde;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox SalarioTxtBox;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Puesto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Salario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Empresa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Desde;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Hasta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn InstitucionId;
     }
 }

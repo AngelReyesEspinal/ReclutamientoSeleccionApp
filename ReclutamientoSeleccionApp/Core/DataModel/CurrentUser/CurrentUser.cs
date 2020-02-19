@@ -9,6 +9,7 @@ namespace ReclutamientoSeleccionApp.Core.DataModel.CurrentUser
 {
     public static class CurrentUser
     {
+        public static int Id { get; set; }
         public static string Nombre { get; set; }
         public static string Apellido { get; set; }
         public static string UserName { get; set; }
@@ -23,6 +24,7 @@ namespace ReclutamientoSeleccionApp.Core.DataModel.CurrentUser
             UserName = usuario.UserName;
             Rol = usuario.Rol;
             FechaCreacion = usuario.FechaCreacion;
+            Id = usuario.Id;
         }
     }
 }

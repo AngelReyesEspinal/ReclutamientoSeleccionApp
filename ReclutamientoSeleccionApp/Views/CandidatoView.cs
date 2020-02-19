@@ -15,11 +15,13 @@ namespace ReclutamientoSeleccionApp.Views
 {
     public partial class CandidatoView : Form
     {
+        private readonly CandidatoService _candidatoService;
         private readonly PuestoService _puestoService;
         private readonly DepartamentoService _departamentoService;
         private readonly CompetenciaService _competenciaService;
         private readonly CapacitacionService _capacitacionService;
         private readonly IdiomaService _idiomaService;
+        private int _rowSelectedId = 0;
         //
         private List<Puesto> _puestos;
         private List<Departamento> _departamentos;
@@ -33,6 +35,7 @@ namespace ReclutamientoSeleccionApp.Views
             _competencias = new List<Competencia>();
             _departamentos = new List<Departamento>();
             //
+            _candidatoService = new CandidatoService();
             _idiomaService = new IdiomaService();
             _puestoService = new PuestoService();
             _competenciaService = new CompetenciaService();
@@ -69,13 +72,41 @@ namespace ReclutamientoSeleccionApp.Views
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private async void button2_Click(object sender, EventArgs e)
         {
-
+            if (
+                !String.IsNullOrWhiteSpace(CedulaTxtBox.Text) &&
+                !String.IsNullOrWhiteSpace(NombresTxtBox.Text) &&
+                !String.IsNullOrWhiteSpace(ApellidoTxtBox.Text) &&
+                !String.IsNullOrWhiteSpace(recomendadoPorTxtBox.Text) &&
+                !String.IsNullOrWhiteSpace(DepartamentoComboBox.Text) &&
+                !String.IsNullOrWhiteSpace(PuestoComboBox.Text) &&
+                !String.IsNullOrWhiteSpace(SalarioAspiradoTxtBox.Text)
+            )
+            {
+                showLoading();
+                var puesto = (Puesto)PuestoComboBox.SelectedItem;
+                var departamento = (Departamento)DepartamentoComboBox.SelectedItem;
+                var entity = new Candidato()
+                {
+                    Id = _rowSelectedId,
+                    Cedula = CedulaTxtBox.Text,
+                    PuestoId = puesto.Id,
+                    DepartamentoId = departamento.Id,
+                    Nombres = NombresTxtBox.Text,
+                    Apellidos = ApellidoTxtBox.Text,
+                    Salario = Convert.ToDecimal(SalarioAspiradoTxtBox.Text),
+                    //Idiomas = 
+                };
+                string accionRealizada = _rowSelectedId == 0 ? "guardado" : "editado";
+                await _candidatoService.AddOrUpdateAsync(entity);
+                MessageBox.Show("Se ha " + accionRealizada + " su perfil correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                hideLoading();
+            }
+            else
+                MessageBox.Show("Debe llenar todos los campos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
-        // loadings zone
-
-        // puestos loading
+        
         private void showPuestosLoading()
         {
             puestosLoading.Visible = true;
@@ -318,6 +349,11 @@ namespace ReclutamientoSeleccionApp.Views
             Hide();
             experienciaLaboralView.Show();
             Dispose();
+        }
+
+        private void CapacitacionesListBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

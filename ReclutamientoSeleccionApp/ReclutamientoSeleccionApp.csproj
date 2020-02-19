@@ -57,9 +57,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bl\Services\CandidatoService.cs" />
     <Compile Include="Bl\Services\CapacitacionService.cs" />
     <Compile Include="Bl\Services\CompetenciaService.cs" />
     <Compile Include="Bl\Services\DepartamentoService.cs" />
+    <Compile Include="Bl\Services\ExperienciaLaboralService.cs" />
     <Compile Include="Bl\Services\IdiomaService.cs" />
     <Compile Include="Bl\Services\InstitucionService.cs" />
     <Compile Include="Bl\Services\NivelService.cs" />
@@ -112,6 +114,18 @@
     <Compile Include="Migrations\202002170024024_eliminando candidato de experiencia.cs" />
     <Compile Include="Migrations\202002170024024_eliminando candidato de experiencia.designer.cs">
       <DependentUpon>202002170024024_eliminando candidato de experiencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002190236420_last-1.cs" />
+    <Compile Include="Migrations\202002190236420_last-1.designer.cs">
+      <DependentUpon>202002190236420_last-1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002190411421_lsat-2.cs" />
+    <Compile Include="Migrations\202002190411421_lsat-2.designer.cs">
+      <DependentUpon>202002190411421_lsat-2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002190415478_lsat-3.cs" />
+    <Compile Include="Migrations\202002190415478_lsat-3.designer.cs">
+      <DependentUpon>202002190415478_lsat-3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Views\CandidatoView.cs">
@@ -175,7 +189,6 @@
     <Compile Include="DataModel\Models\Idioma.cs" />
     <Compile Include="DataModel\Models\Institucion.cs" />
     <Compile Include="DataModel\Models\Nivel.cs" />
-    <Compile Include="DataModel\Models\DatoPersonal.cs" />
     <Compile Include="DataModel\Models\Puesto.cs" />
     <Compile Include="DataModel\Models\User.cs" />
     <Compile Include="Program.cs" />
@@ -230,6 +243,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002170024024_eliminando candidato de experiencia.resx">
       <DependentUpon>202002170024024_eliminando candidato de experiencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002190236420_last-1.resx">
+      <DependentUpon>202002190236420_last-1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002190411421_lsat-2.resx">
+      <DependentUpon>202002190411421_lsat-2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002190415478_lsat-3.resx">
+      <DependentUpon>202002190415478_lsat-3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\CandidatoView.resx">
       <DependentUpon>CandidatoView.cs</DependentUpon>

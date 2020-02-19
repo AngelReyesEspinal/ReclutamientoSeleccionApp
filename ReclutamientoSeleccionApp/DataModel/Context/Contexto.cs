@@ -24,7 +24,6 @@ namespace ReclutamientoSeleccionApp.DataModel.Models
         public DbSet<User> Usuarios { get; set; }
         public DbSet<Empleado> Empleados { get; set; }
         public DbSet<ExperienciaLaboral> ExperienciasLaborales { get; set; }
-        public DbSet<DatoPersonal> DatosPersonales { get; set; }
         public DbSet<Departamento> Departamentos { get; set; }
         public DbSet<Candidato> Candidatos { get; set; }
         public DbSet<Nivel> Niveles { get; set; }

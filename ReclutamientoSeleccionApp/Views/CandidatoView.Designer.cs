@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CandidatoView));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
@@ -75,7 +76,6 @@
             this.CompetenciasListBox2 = new System.Windows.Forms.CheckedListBox();
             this.CapacitacionesListBox2 = new System.Windows.Forms.CheckedListBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.button12 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -107,6 +107,21 @@
             this.panel1.Size = new System.Drawing.Size(273, 847);
             this.panel1.TabIndex = 18;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // button12
+            // 
+            this.button12.BackColor = System.Drawing.Color.Maroon;
+            this.button12.FlatAppearance.BorderSize = 0;
+            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button12.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button12.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button12.Location = new System.Drawing.Point(29, 237);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(250, 40);
+            this.button12.TabIndex = 31;
+            this.button12.Text = "EXPERIENCIA LABORAL";
+            this.button12.UseVisualStyleBackColor = false;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // button11
             // 
@@ -284,7 +299,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(274, 62);
             this.button1.TabIndex = 15;
-            this.button1.Text = "Iniciar sesión";
+            this.button1.Text = "Enviar solicitud";
             this.button1.UseVisualStyleBackColor = false;
             // 
             // label3
@@ -340,11 +355,11 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Candara", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(487, 753);
+            this.button2.Location = new System.Drawing.Point(502, 753);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(274, 62);
             this.button2.TabIndex = 20;
-            this.button2.Text = "Registrarme";
+            this.button2.Text = "Guardar cambios";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -638,6 +653,7 @@
             this.CapacitacionesListBox2.Name = "CapacitacionesListBox2";
             this.CapacitacionesListBox2.Size = new System.Drawing.Size(390, 196);
             this.CapacitacionesListBox2.TabIndex = 0;
+            this.CapacitacionesListBox2.SelectedIndexChanged += new System.EventHandler(this.CapacitacionesListBox2_SelectedIndexChanged);
             // 
             // groupBox5
             // 
@@ -649,21 +665,6 @@
             this.groupBox5.TabIndex = 44;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "4. CAPACITACIONES";
-            // 
-            // button12
-            // 
-            this.button12.BackColor = System.Drawing.Color.Maroon;
-            this.button12.FlatAppearance.BorderSize = 0;
-            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button12.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button12.Location = new System.Drawing.Point(29, 237);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(250, 40);
-            this.button12.TabIndex = 31;
-            this.button12.Text = "EXPERIENCIA LABORAL";
-            this.button12.UseVisualStyleBackColor = false;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // CandidatoView
             // 
