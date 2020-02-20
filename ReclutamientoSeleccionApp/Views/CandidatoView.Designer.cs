@@ -76,6 +76,8 @@
             this.CompetenciasListBox2 = new System.Windows.Forms.CheckedListBox();
             this.CapacitacionesListBox2 = new System.Windows.Forms.CheckedListBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -86,6 +88,7 @@
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -274,7 +277,6 @@
             this.NombresTxtBox.Font = new System.Drawing.Font("Candara Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NombresTxtBox.Location = new System.Drawing.Point(237, 103);
             this.NombresTxtBox.Name = "NombresTxtBox";
-            this.NombresTxtBox.PasswordChar = '*';
             this.NombresTxtBox.Size = new System.Drawing.Size(271, 27);
             this.NombresTxtBox.TabIndex = 17;
             this.NombresTxtBox.TextChanged += new System.EventHandler(this.ContraseniaTxtBox_TextChanged);
@@ -388,7 +390,6 @@
             this.ApellidoTxtBox.Font = new System.Drawing.Font("Candara Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ApellidoTxtBox.Location = new System.Drawing.Point(237, 154);
             this.ApellidoTxtBox.Name = "ApellidoTxtBox";
-            this.ApellidoTxtBox.PasswordChar = '*';
             this.ApellidoTxtBox.Size = new System.Drawing.Size(271, 27);
             this.ApellidoTxtBox.TabIndex = 22;
             this.ApellidoTxtBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -448,7 +449,6 @@
             this.recomendadoPorTxtBox.Font = new System.Drawing.Font("Candara Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.recomendadoPorTxtBox.Location = new System.Drawing.Point(237, 201);
             this.recomendadoPorTxtBox.Name = "recomendadoPorTxtBox";
-            this.recomendadoPorTxtBox.PasswordChar = '*';
             this.recomendadoPorTxtBox.Size = new System.Drawing.Size(271, 27);
             this.recomendadoPorTxtBox.TabIndex = 24;
             // 
@@ -492,7 +492,6 @@
             this.SalarioAspiradoTxtBox.Font = new System.Drawing.Font("Candara Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SalarioAspiradoTxtBox.Location = new System.Drawing.Point(258, 248);
             this.SalarioAspiradoTxtBox.Name = "SalarioAspiradoTxtBox";
-            this.SalarioAspiradoTxtBox.PasswordChar = '*';
             this.SalarioAspiradoTxtBox.Size = new System.Drawing.Size(250, 27);
             this.SalarioAspiradoTxtBox.TabIndex = 23;
             this.SalarioAspiradoTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SalarioAspiradoTxtBox_KeyPress);
@@ -516,6 +515,7 @@
             this.DepartamentoComboBox.Size = new System.Drawing.Size(250, 31);
             this.DepartamentoComboBox.TabIndex = 48;
             this.DepartamentoComboBox.SelectedIndexChanged += new System.EventHandler(this.DepartamentoComboBox_SelectedIndexChanged);
+            this.DepartamentoComboBox.SelectedValueChanged += new System.EventHandler(this.DepartamentoComboBox_SelectedValueChanged);
             // 
             // label9
             // 
@@ -666,12 +666,32 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "4. CAPACITACIONES";
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.checkedListBox2);
+            this.groupBox6.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox6.Location = new System.Drawing.Point(1305, 432);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(429, 283);
+            this.groupBox6.TabIndex = 43;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "4. EXPERIENCIAS LABORALES ";
+            // 
+            // checkedListBox2
+            // 
+            this.checkedListBox2.FormattingEnabled = true;
+            this.checkedListBox2.Location = new System.Drawing.Point(18, 28);
+            this.checkedListBox2.Name = "checkedListBox2";
+            this.checkedListBox2.Size = new System.Drawing.Size(390, 196);
+            this.checkedListBox2.TabIndex = 0;
+            // 
             // CandidatoView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1813, 833);
+            this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -687,7 +707,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CandidatoView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "111";
             this.Load += new System.EventHandler(this.CandidatoView_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -701,6 +720,7 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -755,5 +775,7 @@
         private System.Windows.Forms.CheckedListBox CapacitacionesListBox2;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.CheckedListBox checkedListBox2;
     }
 }

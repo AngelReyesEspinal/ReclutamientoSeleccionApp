@@ -22,7 +22,6 @@ namespace ReclutamientoSeleccionApp.Models
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
         public string RecomendadoPor { get; set; }
-        public string Experiencia { get; set; }
         public decimal Salario { get; set; }
         public int PuestoId { get; set; }
         public int DepartamentoId { get; set; }

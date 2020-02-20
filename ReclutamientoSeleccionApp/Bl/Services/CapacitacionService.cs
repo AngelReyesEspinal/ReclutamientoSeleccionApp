@@ -32,5 +32,9 @@ namespace ReclutamientoSeleccionApp.Bl.Services.UserService
                 return _context.Capacitaciones.Where(x => !x.Deleted && x.PuestoId == puestoId).AsQueryable();
             });
         }
+        public IQueryable<Capacitacion> GetActiveByPuestoNotAsync(int puestoId)
+        {
+            return _context.Capacitaciones.Where(x => !x.Deleted && x.PuestoId == puestoId).AsQueryable();
+        }
     }
 }

@@ -39,7 +39,10 @@ namespace ReclutamientoSeleccionApp.Bl.Services.UserService
                 return _context.Competencias.Where(x => !x.Deleted && x.Estado == Models.Codes.Estado.Activo && x.PuestoId == puestoId).AsQueryable();
             });
         }
-
+        public IQueryable<Competencia> GetActiveByPuestoNotAsync(int puestoId)
+        {
+            return _context.Competencias.Where(x => !x.Deleted && x.Estado == Models.Codes.Estado.Activo && x.PuestoId == puestoId).AsQueryable();
+        }
         public async Task<IQueryable<Competencia>> GetAllByIds(List<int> ids)
         {
             return await Task.Run(() => {

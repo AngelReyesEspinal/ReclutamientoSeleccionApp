@@ -127,6 +127,10 @@
     <Compile Include="Migrations\202002190415478_lsat-3.designer.cs">
       <DependentUpon>202002190415478_lsat-3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002200150267_zz.cs" />
+    <Compile Include="Migrations\202002200150267_zz.designer.cs">
+      <DependentUpon>202002200150267_zz.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Views\CandidatoView.cs">
       <SubType>Form</SubType>
@@ -252,6 +256,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002190415478_lsat-3.resx">
       <DependentUpon>202002190415478_lsat-3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002200150267_zz.resx">
+      <DependentUpon>202002200150267_zz.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\CandidatoView.resx">
       <DependentUpon>CandidatoView.cs</DependentUpon>

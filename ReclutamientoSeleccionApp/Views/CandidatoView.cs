@@ -20,10 +20,12 @@ namespace ReclutamientoSeleccionApp.Views
         private readonly DepartamentoService _departamentoService;
         private readonly CompetenciaService _competenciaService;
         private readonly CapacitacionService _capacitacionService;
+        private readonly ExperienciaLaboralService _experienciaLaboralService;
         private readonly IdiomaService _idiomaService;
-        private int _rowSelectedId = 0;
+        private int candidatoId = 0;
         //
         private List<Puesto> _puestos;
+        private List<ExperienciaLaboral> _experienciasLaborales;
         private List<Departamento> _departamentos;
         private List<Idioma> _idiomas;
         private List<Competencia> _competencias;
@@ -32,6 +34,7 @@ namespace ReclutamientoSeleccionApp.Views
             InitializeComponent();
             _idiomas = new List<Idioma>();
             _puestos = new List<Puesto>();
+            _experienciasLaborales = new List<ExperienciaLaboral>();
             _competencias = new List<Competencia>();
             _departamentos = new List<Departamento>();
             //
@@ -41,6 +44,7 @@ namespace ReclutamientoSeleccionApp.Views
             _competenciaService = new CompetenciaService();
             _departamentoService = new DepartamentoService();
             _capacitacionService = new CapacitacionService();
+            _experienciaLaboralService = new ExperienciaLaboralService();
             //CurrentUser.Nombre;
         }
 
@@ -56,19 +60,93 @@ namespace ReclutamientoSeleccionApp.Views
 
         private async void CandidatoView_Load(object sender, EventArgs e)
         {
+            var candidatoCreado = await _candidatoService.GetCandidatoByUserId(CurrentUser.Id);
+            
             _idiomas = (await _idiomaService.GetActiveLanguages()).ToList();
             _departamentos = (await _departamentoService.GetAll()).ToList();
+            _experienciasLaborales = (await _experienciaLaboralService.GetAll()).ToList();
+
+            foreach (var experiencias in _experienciasLaborales)
+            {
+                checkedListBox2.Items.Add(experiencias);
+                checkedListBox2.DisplayMember = "PuestoOcupado";
+                checkedListBox2.ValueMember = "Id";
+            }
+
             foreach (var idioma in _idiomas)
             {
                 checkedListBox1.Items.Add(idioma);
                 checkedListBox1.DisplayMember = "Nombre";
                 checkedListBox1.ValueMember = "Id";
             }
+
             foreach (var departamento in _departamentos)
             {
                 DepartamentoComboBox.Items.Add(departamento);
                 DepartamentoComboBox.DisplayMember = "Nombre";
                 DepartamentoComboBox.ValueMember = "Id";
+            }
+            
+            if (candidatoCreado != null) {
+                var departamento = _departamentos.Find(x => x.Id == candidatoCreado.DepartamentoId);
+                var puesto = departamento.Puestos.FirstOrDefault(x => x.Id == candidatoCreado.PuestoId);
+
+                candidatoId = candidatoCreado.Id;
+                CedulaTxtBox.Text = candidatoCreado.Cedula;
+                NombresTxtBox.Text = candidatoCreado.Nombres;
+                ApellidoTxtBox.Text = candidatoCreado.Apellidos;
+                recomendadoPorTxtBox.Text = candidatoCreado.RecomendadoPor;
+                DepartamentoComboBox.SelectedItem = departamento;
+                PuestoComboBox.SelectedItem = puesto;
+                SalarioAspiradoTxtBox.Text = Convert.ToString(candidatoCreado.Salario);
+
+                foreach (var capacitacionBD in candidatoCreado.Capacitaciones)
+                {
+                    for (int i = 0; i < CapacitacionesListBox2.Items.Count; i++)
+                    {
+                        var capacitacion = (Capacitacion)CapacitacionesListBox2.Items[i];
+                        if (capacitacion.Id == capacitacionBD.Id)
+                        {
+                            CapacitacionesListBox2.SetItemChecked(i, true);
+                        }
+                    }
+                }
+
+                foreach (var competenciaBD in candidatoCreado.Competencias)
+                {
+                    for (int i = 0; i < CompetenciasListBox2.Items.Count; i++)
+                    {
+                        var competencia = (Competencia)CompetenciasListBox2.Items[i];
+                        if (competencia.Id == competenciaBD.Id)
+                        {
+                            CompetenciasListBox2.SetItemChecked(i, true);
+                        }
+                    }
+                }
+
+                foreach (var idiomaDb in candidatoCreado.Idiomas)
+                {
+                    for (int i = 0; i < checkedListBox1.Items.Count; i++)
+                    {
+                        var idioma = (Idioma)checkedListBox1.Items[i];
+                        if (idioma.Id == idiomaDb.Id)
+                        {
+                            checkedListBox1.SetItemChecked(i, true);
+                        }
+                    }
+                }
+
+                foreach (var experienciaDb in candidatoCreado.ExperienciasLaborales)
+                {
+                    for (int i = 0; i < checkedListBox2.Items.Count; i++)
+                    {
+                        var experiencia = (ExperienciaLaboral)checkedListBox2.Items[i];
+                        if (experiencia.Id == experienciaDb.Id)
+                        {
+                            checkedListBox2.SetItemChecked(i, true);
+                        }
+                    }
+                }
             }
         }
 
@@ -87,19 +165,50 @@ namespace ReclutamientoSeleccionApp.Views
                 showLoading();
                 var puesto = (Puesto)PuestoComboBox.SelectedItem;
                 var departamento = (Departamento)DepartamentoComboBox.SelectedItem;
+                var idiomas = new List<Idioma>();
+                var capacitaciones = new List<Capacitacion>();
+                var competencias = new List<Competencia>();
+                var experiencias = new List<ExperienciaLaboral>();
+
+                foreach (var idioma in checkedListBox1.CheckedItems)
+                {
+                    idiomas.Add((Idioma)idioma);
+                }
+                
+                foreach (var capacitacion in CapacitacionesListBox2.CheckedItems)
+                {
+                    capacitaciones.Add((Capacitacion)capacitacion);
+                }
+
+                foreach (var competencia in CompetenciasListBox2.CheckedItems)
+                {
+                    competencias.Add((Competencia)competencia);
+                }
+
+                foreach (var experiencia in checkedListBox2.CheckedItems)
+                {
+                    experiencias.Add((ExperienciaLaboral)experiencia);
+                }
+
                 var entity = new Candidato()
                 {
-                    Id = _rowSelectedId,
+                    Id = candidatoId,
                     Cedula = CedulaTxtBox.Text,
                     PuestoId = puesto.Id,
                     DepartamentoId = departamento.Id,
                     Nombres = NombresTxtBox.Text,
                     Apellidos = ApellidoTxtBox.Text,
+                    RecomendadoPor = recomendadoPorTxtBox.Text,
                     Salario = Convert.ToDecimal(SalarioAspiradoTxtBox.Text),
-                    //Idiomas = 
+                    Idiomas = idiomas,
+                    Capacitaciones = capacitaciones,
+                    Competencias = competencias,
+                    ExperienciasLaborales = experiencias,
+                    UserId = CurrentUser.Id
                 };
-                string accionRealizada = _rowSelectedId == 0 ? "guardado" : "editado";
-                await _candidatoService.AddOrUpdateAsync(entity);
+                await _candidatoService.AssociateAndSave(entity);
+
+                string accionRealizada = candidatoId == 0 ? "guardado" : "editado";
                 MessageBox.Show("Se ha " + accionRealizada + " su perfil correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 hideLoading();
             }
@@ -168,7 +277,7 @@ namespace ReclutamientoSeleccionApp.Views
             Dispose();
         }
 
-        private async void NivelesDeRiesgoComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void NivelesDeRiesgoComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (PuestoComboBox.SelectedItem != null) {
                 var puesto = (Puesto)PuestoComboBox.SelectedItem;
@@ -176,7 +285,7 @@ namespace ReclutamientoSeleccionApp.Views
                 SalarioMinimoLabel.Text = Convert.ToString(puesto.SalarioMinimo);
                 NivelDeRiesgoLabel.Text = Convert.ToString(puesto.NivelDeRiesgo);
                 //
-                var capacitaciones = (await _capacitacionService.GetActiveByPuesto(puesto.Id)).ToList();
+                var capacitaciones = _capacitacionService.GetActiveByPuestoNotAsync(puesto.Id).ToList();
                 CapacitacionesListBox2.Items.Clear();
                 CapacitacionesListBox2.SelectedItem = null;
                 CapacitacionesListBox2.Text = null;
@@ -188,7 +297,7 @@ namespace ReclutamientoSeleccionApp.Views
                     CapacitacionesListBox2.ValueMember = "Id";
                 }
                 //                
-                var competencias = (await _competenciaService.GetActiveByPuesto(puesto.Id)).ToList();
+                var competencias = _competenciaService.GetActiveByPuestoNotAsync(puesto.Id).ToList();
                 CompetenciasListBox2.Items.Clear();
                 CompetenciasListBox2.SelectedItem = null;
                 CompetenciasListBox2.Text = null;
@@ -352,6 +461,11 @@ namespace ReclutamientoSeleccionApp.Views
         }
 
         private void CapacitacionesListBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DepartamentoComboBox_SelectedValueChanged(object sender, EventArgs e)
         {
 
         }
