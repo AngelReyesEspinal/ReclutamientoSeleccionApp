@@ -1,4 +1,5 @@
-﻿using ReclutamientoSeleccionApp.Core.DataModel.Base;
+﻿using ReclutamientoSeleccionApp.Bl.Services.UserService;
+using ReclutamientoSeleccionApp.Core.DataModel.Base;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;

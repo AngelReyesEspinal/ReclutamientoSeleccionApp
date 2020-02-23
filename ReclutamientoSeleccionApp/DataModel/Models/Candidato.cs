@@ -33,6 +33,13 @@ namespace ReclutamientoSeleccionApp.Models
         public virtual ICollection<Competencia> Competencias { get; set; }
         public virtual ICollection<Capacitacion> Capacitaciones { get; set; }
         public virtual ICollection<ExperienciaLaboral> ExperienciasLaborales { get; set; }
-
+        [NotMapped]
+        public string FullName
+        {
+            get
+            {
+                return Nombres + " " + Apellidos;
+            }
+        }
     }
 }

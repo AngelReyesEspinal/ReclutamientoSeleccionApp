@@ -29,6 +29,7 @@ namespace ReclutamientoSeleccionApp.DataModel.Models
         public DbSet<Nivel> Niveles { get; set; }
         public DbSet<Institucion> Instituciones { get; set; }
         public DbSet<Capacitacion> Capacitaciones { get; set; }
+        public DbSet<SolicitudPendiente> SolicitudesPendientes { get; set; }
         public DbSet<Puesto> Puestos { get; set; }
         public DbSet<Competencia> Competencias { get; set; }
         public DbSet<Idioma> Idiomas { get; set; }

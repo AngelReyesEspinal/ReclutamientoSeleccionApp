@@ -62,6 +62,12 @@ namespace ReclutamientoSeleccionApp.Core.Repository
             });
         }
 
+        public void AddOrUpdate(TEntity entity)
+        {
+            Entities.AddOrUpdate(entity);
+            _context.SaveChanges();
+        }
+
         public async Task DeleteAsync(TEntity entity)
         {
             await Task.Run(() => {

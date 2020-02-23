@@ -61,16 +61,19 @@
     <Compile Include="Bl\Services\CapacitacionService.cs" />
     <Compile Include="Bl\Services\CompetenciaService.cs" />
     <Compile Include="Bl\Services\DepartamentoService.cs" />
+    <Compile Include="Bl\Services\EmpleadoService.cs" />
     <Compile Include="Bl\Services\ExperienciaLaboralService.cs" />
     <Compile Include="Bl\Services\IdiomaService.cs" />
     <Compile Include="Bl\Services\InstitucionService.cs" />
     <Compile Include="Bl\Services\NivelService.cs" />
     <Compile Include="Bl\Services\PuestoService.cs" />
+    <Compile Include="Bl\Services\SolicitudPendienteService.cs" />
     <Compile Include="Bl\Services\UserService.cs" />
     <Compile Include="Core\DataModel\CurrentUser\CurrentUser.cs" />
     <Compile Include="Core\Repository\BaseRepository.cs" />
     <Compile Include="DataModel\Dtos\CompetenciaDto.cs" />
     <Compile Include="DataModel\Dtos\PuestoDto.cs" />
+    <Compile Include="DataModel\Models\SolicitudPendiente.cs" />
     <Compile Include="Migrations\202002021513298_Initial.cs" />
     <Compile Include="Migrations\202002021513298_Initial.designer.cs">
       <DependentUpon>202002021513298_Initial.cs</DependentUpon>
@@ -130,6 +133,10 @@
     <Compile Include="Migrations\202002200150267_zz.cs" />
     <Compile Include="Migrations\202002200150267_zz.designer.cs">
       <DependentUpon>202002200150267_zz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002230038302_solicitud pendiente.cs" />
+    <Compile Include="Migrations\202002230038302_solicitud pendiente.designer.cs">
+      <DependentUpon>202002230038302_solicitud pendiente.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Views\CandidatoView.cs">
@@ -215,6 +222,12 @@
     <Compile Include="Views\RegisterView.Designer.cs">
       <DependentUpon>RegisterView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\SolicitudesPendientesView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SolicitudesPendientesView.Designer.cs">
+      <DependentUpon>SolicitudesPendientesView.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Migrations\202002021513298_Initial.resx">
       <DependentUpon>202002021513298_Initial.cs</DependentUpon>
     </EmbeddedResource>
@@ -260,6 +273,9 @@
     <EmbeddedResource Include="Migrations\202002200150267_zz.resx">
       <DependentUpon>202002200150267_zz.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002230038302_solicitud pendiente.resx">
+      <DependentUpon>202002230038302_solicitud pendiente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\CandidatoView.resx">
       <DependentUpon>CandidatoView.cs</DependentUpon>
     </EmbeddedResource>
@@ -301,6 +317,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\RegisterView.resx">
       <DependentUpon>RegisterView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SolicitudesPendientesView.resx">
+      <DependentUpon>SolicitudesPendientesView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

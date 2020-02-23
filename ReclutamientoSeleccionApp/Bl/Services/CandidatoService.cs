@@ -47,5 +47,11 @@ namespace ReclutamientoSeleccionApp.Bl.Services.UserService
                 return _context.Candidatos.Where(x => !x.Deleted).AsQueryable();
             });
         }
+
+        public string GetFullName(int Id)
+        {
+            var candidato = GetById(Id);
+            return candidato.Nombres + " " + candidato.Apellidos;
+        }
     }
 }

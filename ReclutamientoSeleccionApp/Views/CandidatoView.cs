@@ -1,5 +1,6 @@
 ﻿using ReclutamientoSeleccionApp.Bl.Services.UserService;
 using ReclutamientoSeleccionApp.Core.DataModel.CurrentUser;
+using ReclutamientoSeleccionApp.DataModel.Models;
 using ReclutamientoSeleccionApp.Models;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace ReclutamientoSeleccionApp.Views
 {
     public partial class CandidatoView : Form
     {
+        private readonly SolicitudPendienteService _solicitudPendiente;
         private readonly CandidatoService _candidatoService;
         private readonly PuestoService _puestoService;
         private readonly DepartamentoService _departamentoService;
@@ -23,12 +25,14 @@ namespace ReclutamientoSeleccionApp.Views
         private readonly ExperienciaLaboralService _experienciaLaboralService;
         private readonly IdiomaService _idiomaService;
         private int candidatoId = 0;
+        private Candidato candidatoCreado;
         //
         private List<Puesto> _puestos;
         private List<ExperienciaLaboral> _experienciasLaborales;
         private List<Departamento> _departamentos;
         private List<Idioma> _idiomas;
         private List<Competencia> _competencias;
+        private SolicitudPendiente _solicitud;
         public CandidatoView()
         {
             InitializeComponent();
@@ -38,6 +42,7 @@ namespace ReclutamientoSeleccionApp.Views
             _competencias = new List<Competencia>();
             _departamentos = new List<Departamento>();
             //
+            _solicitudPendiente = new SolicitudPendienteService();
             _candidatoService = new CandidatoService();
             _idiomaService = new IdiomaService();
             _puestoService = new PuestoService();
@@ -60,7 +65,7 @@ namespace ReclutamientoSeleccionApp.Views
 
         private async void CandidatoView_Load(object sender, EventArgs e)
         {
-            var candidatoCreado = await _candidatoService.GetCandidatoByUserId(CurrentUser.Id);
+            candidatoCreado = await _candidatoService.GetCandidatoByUserId(CurrentUser.Id);
             
             _idiomas = (await _idiomaService.GetActiveLanguages()).ToList();
             _departamentos = (await _departamentoService.GetAll()).ToList();
@@ -88,6 +93,21 @@ namespace ReclutamientoSeleccionApp.Views
             }
             
             if (candidatoCreado != null) {
+                _solicitud = await _solicitudPendiente.GetByCandidatoId(candidatoCreado.Id);
+
+                if (_solicitud != null) {
+                    if (_solicitud.FueAceptado) {
+                        MessageBox.Show("FELICIDADES USTED FUE ACEPTADO :)", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    } else if (!_solicitud.FueAceptado && _solicitud.EstaPendiente) { 
+                        MessageBox.Show("SU SOLICITUD AUN ESTA PENDIENTE", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if (!_solicitud.FueAceptado && !_solicitud.EstaPendiente) {
+                        MessageBox.Show("DISCULPE SU SOLICITUD FUE RECHAZADA :(", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    button2.Enabled = false;
+                    button1.Enabled = false;
+                }
+
                 var departamento = _departamentos.Find(x => x.Id == candidatoCreado.DepartamentoId);
                 var puesto = departamento.Puestos.FirstOrDefault(x => x.Id == candidatoCreado.PuestoId);
 
@@ -206,8 +226,7 @@ namespace ReclutamientoSeleccionApp.Views
                     ExperienciasLaborales = experiencias,
                     UserId = CurrentUser.Id
                 };
-                await _candidatoService.AssociateAndSave(entity);
-
+                candidatoCreado = await _candidatoService.AssociateAndSave(entity);
                 string accionRealizada = candidatoId == 0 ? "guardado" : "editado";
                 MessageBox.Show("Se ha " + accionRealizada + " su perfil correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 hideLoading();
@@ -468,6 +487,35 @@ namespace ReclutamientoSeleccionApp.Views
         private void DepartamentoComboBox_SelectedValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            if (candidatoCreado != null)
+            {
+                showLoading();
+                var solicitud = new SolicitudPendiente
+                {
+                    CandidatoId = candidatoCreado.Id,
+                    EstaPendiente = true,
+                    FueAceptado = false
+                };
+                await _solicitudPendiente.AddOrUpdateAsync(solicitud);
+                hideLoading();
+                MessageBox.Show("Se ha realizado la solicitud, favor espere por nustra respuesta", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                button2.Enabled = false;
+                button1.Enabled = false;
+            }
+            else
+                MessageBox.Show("Debe primero guardar los datos del candidato", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            var solicitudesPendientesView = new SolicitudesPendientesView();
+            Hide();
+            solicitudesPendientesView.Show();
+            Dispose();
         }
     }
 }
