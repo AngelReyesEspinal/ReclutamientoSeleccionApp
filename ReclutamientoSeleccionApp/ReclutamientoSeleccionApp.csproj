@@ -71,8 +71,10 @@
     <Compile Include="Bl\Services\UserService.cs" />
     <Compile Include="Core\DataModel\CurrentUser\CurrentUser.cs" />
     <Compile Include="Core\Repository\BaseRepository.cs" />
+    <Compile Include="Core\Repository\DGVPrinter.cs" />
     <Compile Include="DataModel\Dtos\CompetenciaDto.cs" />
     <Compile Include="DataModel\Dtos\PuestoDto.cs" />
+    <Compile Include="DataModel\Models\SearchCandidatosModel.cs" />
     <Compile Include="DataModel\Models\SolicitudPendiente.cs" />
     <Compile Include="Migrations\202002021513298_Initial.cs" />
     <Compile Include="Migrations\202002021513298_Initial.designer.cs">
@@ -163,6 +165,12 @@
     <Compile Include="Views\DepartamentoView.Designer.cs">
       <DependentUpon>DepartamentoView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\EmpleadosView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\EmpleadosView.Designer.cs">
+      <DependentUpon>EmpleadosView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ExperienciaLaboralView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,6 +229,12 @@
     </Compile>
     <Compile Include="Views\RegisterView.Designer.cs">
       <DependentUpon>RegisterView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SearchCandidatoView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SearchCandidatoView.Designer.cs">
+      <DependentUpon>SearchCandidatoView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\SolicitudesPendientesView.cs">
       <SubType>Form</SubType>
@@ -288,6 +302,9 @@
     <EmbeddedResource Include="Views\DepartamentoView.resx">
       <DependentUpon>DepartamentoView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\EmpleadosView.resx">
+      <DependentUpon>EmpleadosView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\ExperienciaLaboralView.resx">
       <DependentUpon>ExperienciaLaboralView.cs</DependentUpon>
     </EmbeddedResource>
@@ -317,6 +334,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\RegisterView.resx">
       <DependentUpon>RegisterView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SearchCandidatoView.resx">
+      <DependentUpon>SearchCandidatoView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SolicitudesPendientesView.resx">
       <DependentUpon>SolicitudesPendientesView.cs</DependentUpon>

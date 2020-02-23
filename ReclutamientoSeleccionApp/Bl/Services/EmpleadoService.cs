@@ -20,6 +20,11 @@ namespace ReclutamientoSeleccionApp.Bl.Services.UserService
             return _context.Empleados.Where(x => !x.Deleted).AsQueryable();
         }
 
+        public IQueryable<Empleado> GetByDates(DateTime inicio, DateTime fin)
+        {
+            return _context.Empleados.Where(x => !x.Deleted && x.FechaIngreso >= inicio && x.FechaIngreso <= fin).AsQueryable();
+        }
+
         public bool VolverCandidatosAEmpleados(List<Candidato> candidatos)
         {
             foreach (var candidato in candidatos)

@@ -109,5 +109,13 @@ namespace ReclutamientoSeleccionApp.Views
             else
                 MessageBox.Show("Debe seleccionar los candidatos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var candidatoView = new CandidatoView();
+            Hide();
+            candidatoView.Show();
+            Dispose();
+        }
     }
 }

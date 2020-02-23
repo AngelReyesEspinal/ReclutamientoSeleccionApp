@@ -1,6 +1,7 @@
 ﻿using ReclutamientoSeleccionApp.Bl.Services.UserService;
 using ReclutamientoSeleccionApp.Core.DataModel.CurrentUser;
 using ReclutamientoSeleccionApp.Models;
+using ReclutamientoSeleccionApp.Models.Codes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,6 +40,15 @@ namespace ReclutamientoSeleccionApp.Views
 
         private async void ExperienciaLaboralView_Load(object sender, EventArgs e)
         {
+            if (CurrentUser.Rol == Rol.Estandar)
+            {
+                button4.Visible = false;
+                button5.Visible = false;
+                button3.Visible = false;
+                button8.Visible = false;
+                button9.Visible = false;
+            }
+
             _instituciones = (await _institucionService.GetAll()).ToList();
             foreach (var isntitucion in _instituciones)
             {

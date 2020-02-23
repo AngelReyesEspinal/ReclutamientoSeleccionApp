@@ -17,7 +17,8 @@ namespace ReclutamientoSeleccionApp.Core.DataModel.CurrentUser
         public static Rol Rol { get; set; }
         public static DateTime FechaCreacion { get; set; }
 
-        public static  void SetCurrentUser(Models.User usuario) {
+        public static void SetCurrentUser(Models.User usuario)
+        {
             Nombre = usuario.Nombre;
             Password = usuario.Password;
             Apellido = usuario.Apellido;
@@ -26,5 +27,10 @@ namespace ReclutamientoSeleccionApp.Core.DataModel.CurrentUser
             FechaCreacion = usuario.FechaCreacion;
             Id = usuario.Id;
         }
+
+    }
+    public static class CandidatoSelected
+    {
+        public static int Id { get; set; }
     }
 }

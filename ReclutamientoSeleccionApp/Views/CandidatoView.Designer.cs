@@ -79,6 +79,8 @@
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
             this.button13 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -95,6 +97,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Maroon;
+            this.panel1.Controls.Add(this.button15);
+            this.panel1.Controls.Add(this.button14);
             this.panel1.Controls.Add(this.button13);
             this.panel1.Controls.Add(this.button12);
             this.panel1.Controls.Add(this.button11);
@@ -548,18 +552,19 @@
             this.SalarioMinimoLabel.AutoSize = true;
             this.SalarioMinimoLabel.Font = new System.Drawing.Font("Georgia", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SalarioMinimoLabel.ForeColor = System.Drawing.Color.Black;
-            this.SalarioMinimoLabel.Location = new System.Drawing.Point(253, 164);
+            this.SalarioMinimoLabel.Location = new System.Drawing.Point(253, 129);
             this.SalarioMinimoLabel.Name = "SalarioMinimoLabel";
             this.SalarioMinimoLabel.Size = new System.Drawing.Size(49, 29);
             this.SalarioMinimoLabel.TabIndex = 45;
             this.SalarioMinimoLabel.Text = "0.0";
+            this.SalarioMinimoLabel.Click += new System.EventHandler(this.SalarioMinimoLabel_Click);
             // 
             // SalarioMaximoLabel
             // 
             this.SalarioMaximoLabel.AutoSize = true;
             this.SalarioMaximoLabel.Font = new System.Drawing.Font("Georgia", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SalarioMaximoLabel.ForeColor = System.Drawing.Color.Black;
-            this.SalarioMaximoLabel.Location = new System.Drawing.Point(253, 126);
+            this.SalarioMaximoLabel.Location = new System.Drawing.Point(253, 164);
             this.SalarioMaximoLabel.Name = "SalarioMaximoLabel";
             this.SalarioMaximoLabel.Size = new System.Drawing.Size(49, 29);
             this.SalarioMaximoLabel.TabIndex = 44;
@@ -703,6 +708,36 @@
             this.button13.UseVisualStyleBackColor = false;
             this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
+            // button14
+            // 
+            this.button14.BackColor = System.Drawing.Color.Maroon;
+            this.button14.FlatAppearance.BorderSize = 0;
+            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button14.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button14.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button14.Location = new System.Drawing.Point(-3, 649);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(273, 47);
+            this.button14.TabIndex = 33;
+            this.button14.Text = "BUSCAR CANDIDATOS";
+            this.button14.UseVisualStyleBackColor = false;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
+            // 
+            // button15
+            // 
+            this.button15.BackColor = System.Drawing.Color.Maroon;
+            this.button15.FlatAppearance.BorderSize = 0;
+            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button15.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button15.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button15.Location = new System.Drawing.Point(-3, 702);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(273, 47);
+            this.button15.TabIndex = 34;
+            this.button15.Text = "IMPRIMIR EMPLEADOS";
+            this.button15.UseVisualStyleBackColor = false;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
+            // 
             // CandidatoView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -796,5 +831,7 @@
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.CheckedListBox checkedListBox2;
         private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button button15;
     }
 }

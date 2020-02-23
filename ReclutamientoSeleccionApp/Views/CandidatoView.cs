@@ -2,6 +2,7 @@
 using ReclutamientoSeleccionApp.Core.DataModel.CurrentUser;
 using ReclutamientoSeleccionApp.DataModel.Models;
 using ReclutamientoSeleccionApp.Models;
+using ReclutamientoSeleccionApp.Models.Codes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -65,6 +66,19 @@ namespace ReclutamientoSeleccionApp.Views
 
         private async void CandidatoView_Load(object sender, EventArgs e)
         {
+            if (CurrentUser.Rol == Rol.Estandar) {
+                button4.Visible = false;
+                button5.Visible = false;
+                button7.Visible = false;
+                button8.Visible = false;
+                button9.Visible = false;
+                button10.Visible = false;
+                button11.Visible = false;
+                button13.Visible = false;
+                button14.Visible = false;
+                button15.Visible = false;
+            }
+
             candidatoCreado = await _candidatoService.GetCandidatoByUserId(CurrentUser.Id);
             
             _idiomas = (await _idiomaService.GetActiveLanguages()).ToList();
@@ -91,18 +105,24 @@ namespace ReclutamientoSeleccionApp.Views
                 DepartamentoComboBox.DisplayMember = "Nombre";
                 DepartamentoComboBox.ValueMember = "Id";
             }
-            
+
             if (candidatoCreado != null) {
                 _solicitud = await _solicitudPendiente.GetByCandidatoId(candidatoCreado.Id);
 
                 if (_solicitud != null) {
-                    if (_solicitud.FueAceptado) {
-                        MessageBox.Show("FELICIDADES USTED FUE ACEPTADO :)", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    } else if (!_solicitud.FueAceptado && _solicitud.EstaPendiente) { 
-                        MessageBox.Show("SU SOLICITUD AUN ESTA PENDIENTE", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else if (!_solicitud.FueAceptado && !_solicitud.EstaPendiente) {
-                        MessageBox.Show("DISCULPE SU SOLICITUD FUE RECHAZADA :(", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (CurrentUser.Rol != Rol.Administrador) {
+                        if (_solicitud.FueAceptado)
+                        {
+                            MessageBox.Show("FELICIDADES USTED FUE ACEPTADO :)", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else if (!_solicitud.FueAceptado && _solicitud.EstaPendiente)
+                        {
+                            MessageBox.Show("SU SOLICITUD AUN ESTA PENDIENTE", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else if (!_solicitud.FueAceptado && !_solicitud.EstaPendiente)
+                        {
+                            MessageBox.Show("DISCULPE SU SOLICITUD FUE RECHAZADA :(", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
                     button2.Enabled = false;
                     button1.Enabled = false;
@@ -182,6 +202,11 @@ namespace ReclutamientoSeleccionApp.Views
                 !String.IsNullOrWhiteSpace(SalarioAspiradoTxtBox.Text)
             )
             {
+                if (!_candidatoService.ValidarCedula(CedulaTxtBox.Text)) {
+                    MessageBox.Show("El campo cédula es invalido", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 showLoading();
                 var puesto = (Puesto)PuestoComboBox.SelectedItem;
                 var departamento = (Departamento)DepartamentoComboBox.SelectedItem;
@@ -516,6 +541,27 @@ namespace ReclutamientoSeleccionApp.Views
             Hide();
             solicitudesPendientesView.Show();
             Dispose();
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            var searchCandidatoView = new SearchCandidatoView();
+            Hide();
+            searchCandidatoView.Show();
+            Dispose();
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            var searchCandidatoView = new EmpleadosView();
+            Hide();
+            searchCandidatoView.Show();
+            Dispose();
+        }
+
+        private void SalarioMinimoLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

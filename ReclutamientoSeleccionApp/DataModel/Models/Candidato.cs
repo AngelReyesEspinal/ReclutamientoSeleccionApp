@@ -41,5 +41,73 @@ namespace ReclutamientoSeleccionApp.Models
                 return Nombres + " " + Apellidos;
             }
         }
+        [NotMapped]
+        public string NombrePuesto
+        {
+            get
+            {
+                return Puesto.Nombre;
+            }
+        }
+        [NotMapped]
+        public string NombreInstitucion
+        {
+            get
+            {
+                return Departamento.Nombre;
+            }
+        }
+        [NotMapped]
+        public string TodosLosIdiomas
+        {
+            get
+            {
+                string _idiomas = "";
+                foreach (var idioma in Idiomas)
+                {
+                    _idiomas += idioma.Nombre + ", ";
+                }
+                return _idiomas;
+            }
+        }
+        [NotMapped]
+        public string TodasLasCompetencias
+        {
+            get
+            {
+                string _idiomas = "";
+                foreach (var competencia in Competencias)
+                {
+                    _idiomas += competencia.Descripcion + ", ";
+                }
+                return _idiomas;
+            }
+        }
+        [NotMapped]
+        public string TodasLasCapacitaciones
+        {
+            get
+            {
+                string _idiomas = "";
+                foreach (var competencia in Capacitaciones)
+                {
+                    _idiomas += competencia.Descripcion + ", ";
+                }
+                return _idiomas;
+            }
+        }
+        [NotMapped]
+        public string TodasLasExperiencias
+        {
+            get
+            {
+                string _idiomas = "";
+                foreach (var competencia in ExperienciasLaborales)
+                {
+                    _idiomas += competencia.PuestoOcupado + ", ";
+                }
+                return _idiomas;
+            }
+        }
     }
 }
