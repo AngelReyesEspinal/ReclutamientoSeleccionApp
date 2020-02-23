@@ -516,23 +516,29 @@ namespace ReclutamientoSeleccionApp.Views
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            if (candidatoCreado != null)
+            var confirmResult = MessageBox.Show("Estas seguro de realizar el envio?",
+                                     "Una vez enviado, no se modificara",
+                                     MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
             {
-                showLoading();
-                var solicitud = new SolicitudPendiente
+                if (candidatoCreado != null)
                 {
-                    CandidatoId = candidatoCreado.Id,
-                    EstaPendiente = true,
-                    FueAceptado = false
-                };
-                await _solicitudPendiente.AddOrUpdateAsync(solicitud);
-                hideLoading();
-                MessageBox.Show("Se ha realizado la solicitud, favor espere por nustra respuesta", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                button2.Enabled = false;
-                button1.Enabled = false;
+                    showLoading();
+                    var solicitud = new SolicitudPendiente
+                    {
+                        CandidatoId = candidatoCreado.Id,
+                        EstaPendiente = true,
+                        FueAceptado = false
+                    };
+                    await _solicitudPendiente.AddOrUpdateAsync(solicitud);
+                    hideLoading();
+                    MessageBox.Show("Se ha realizado la solicitud, favor espere por nustra respuesta", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    button2.Enabled = false;
+                    button1.Enabled = false;
+                }
+                else
+                    MessageBox.Show("Debe primero guardar los datos del candidato", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else
-                MessageBox.Show("Debe primero guardar los datos del candidato", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void button13_Click(object sender, EventArgs e)
