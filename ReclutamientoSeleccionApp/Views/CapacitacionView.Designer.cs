@@ -99,6 +99,7 @@
             // 
             // DepartamentoComboBox
             // 
+            this.DepartamentoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DepartamentoComboBox.FormattingEnabled = true;
             this.DepartamentoComboBox.Location = new System.Drawing.Point(649, 176);
             this.DepartamentoComboBox.Name = "DepartamentoComboBox";
@@ -119,6 +120,7 @@
             // 
             // PuestoComboBox
             // 
+            this.PuestoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PuestoComboBox.FormattingEnabled = true;
             this.PuestoComboBox.Location = new System.Drawing.Point(649, 213);
             this.PuestoComboBox.Name = "PuestoComboBox";
@@ -510,6 +512,7 @@
             // 
             // NivelComboBox
             // 
+            this.NivelComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.NivelComboBox.FormattingEnabled = true;
             this.NivelComboBox.Location = new System.Drawing.Point(649, 252);
             this.NivelComboBox.Name = "NivelComboBox";
@@ -529,6 +532,7 @@
             // 
             // IntitucionComboBox
             // 
+            this.IntitucionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.IntitucionComboBox.FormattingEnabled = true;
             this.IntitucionComboBox.Location = new System.Drawing.Point(649, 289);
             this.IntitucionComboBox.Name = "IntitucionComboBox";

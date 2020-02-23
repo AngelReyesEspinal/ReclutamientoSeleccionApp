@@ -53,6 +53,7 @@
             this.Salario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.InstitucionId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Idiomas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -213,7 +214,8 @@
             this.Institucion,
             this.Salario,
             this.InstitucionId,
-            this.Idiomas});
+            this.Idiomas,
+            this.Fecha});
             this.dataGridView1.Location = new System.Drawing.Point(312, 231);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(727, 230);
@@ -291,6 +293,12 @@
             this.Idiomas.HeaderText = "Idiomas";
             this.Idiomas.Name = "Idiomas";
             // 
+            // Fecha
+            // 
+            this.Fecha.DataPropertyName = "FechaIngreso";
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.Name = "Fecha";
+            // 
             // EmpleadosView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -349,5 +357,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Salario;
         private System.Windows.Forms.DataGridViewTextBoxColumn InstitucionId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Idiomas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
     }
 }

@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PuestoView));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -64,8 +66,6 @@
             this.limpiarbtn = new System.Windows.Forms.Button();
             this.DepartamentosComboBox = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -87,6 +87,36 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(263, 602);
             this.panel1.TabIndex = 31;
+            // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.Color.Maroon;
+            this.button9.FlatAppearance.BorderSize = 0;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button9.Location = new System.Drawing.Point(12, 372);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(228, 40);
+            this.button9.TabIndex = 30;
+            this.button9.Text = "COMPETENCIAS";
+            this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.Maroon;
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button8.Location = new System.Drawing.Point(6, 326);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(183, 40);
+            this.button8.TabIndex = 29;
+            this.button8.Text = "IDIOMAS";
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button6
             // 
@@ -292,6 +322,7 @@
             // 
             // NivelesDeRiesgoComboBox
             // 
+            this.NivelesDeRiesgoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.NivelesDeRiesgoComboBox.FormattingEnabled = true;
             this.NivelesDeRiesgoComboBox.Location = new System.Drawing.Point(703, 311);
             this.NivelesDeRiesgoComboBox.Name = "NivelesDeRiesgoComboBox";
@@ -301,6 +332,7 @@
             // 
             // EstadosComboBox
             // 
+            this.EstadosComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.EstadosComboBox.FormattingEnabled = true;
             this.EstadosComboBox.Location = new System.Drawing.Point(703, 357);
             this.EstadosComboBox.Name = "EstadosComboBox";
@@ -437,6 +469,7 @@
             // 
             // DepartamentosComboBox
             // 
+            this.DepartamentosComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DepartamentosComboBox.FormattingEnabled = true;
             this.DepartamentosComboBox.Location = new System.Drawing.Point(703, 121);
             this.DepartamentosComboBox.Name = "DepartamentosComboBox";
@@ -453,36 +486,6 @@
             this.label7.Size = new System.Drawing.Size(175, 29);
             this.label7.TabIndex = 46;
             this.label7.Text = "Departamento:";
-            // 
-            // button9
-            // 
-            this.button9.BackColor = System.Drawing.Color.Maroon;
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button9.Location = new System.Drawing.Point(12, 372);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(228, 40);
-            this.button9.TabIndex = 30;
-            this.button9.Text = "COMPETENCIAS";
-            this.button9.UseVisualStyleBackColor = false;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.Maroon;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button8.Location = new System.Drawing.Point(6, 326);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(183, 40);
-            this.button8.TabIndex = 29;
-            this.button8.Text = "IDIOMAS";
-            this.button8.UseVisualStyleBackColor = false;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // PuestoView
             // 

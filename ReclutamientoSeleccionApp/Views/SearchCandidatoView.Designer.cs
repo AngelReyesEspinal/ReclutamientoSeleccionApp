@@ -30,6 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchCandidatoView));
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.IdiomaComboBox = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.CapacitacionesListBox2 = new System.Windows.Forms.ComboBox();
+            this.CompetenciasListBox2 = new System.Windows.Forms.ComboBox();
+            this.NombreTxtBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.DepartamentoComboBox = new System.Windows.Forms.ComboBox();
             this.Departamento = new System.Windows.Forms.Label();
             this.PuestoComboBox = new System.Windows.Forms.ComboBox();
@@ -55,12 +61,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label5 = new System.Windows.Forms.Label();
-            this.NombreTxtBox = new System.Windows.Forms.TextBox();
-            this.CompetenciasListBox2 = new System.Windows.Forms.ComboBox();
-            this.CapacitacionesListBox2 = new System.Windows.Forms.ComboBox();
-            this.IdiomaComboBox = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cédula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Puesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -105,8 +105,64 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "FILTRAR CANDIDATOS POR";
             // 
+            // IdiomaComboBox
+            // 
+            this.IdiomaComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.IdiomaComboBox.FormattingEnabled = true;
+            this.IdiomaComboBox.Location = new System.Drawing.Point(21, 158);
+            this.IdiomaComboBox.Name = "IdiomaComboBox";
+            this.IdiomaComboBox.Size = new System.Drawing.Size(301, 31);
+            this.IdiomaComboBox.TabIndex = 115;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(17, 123);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(79, 23);
+            this.label7.TabIndex = 114;
+            this.label7.Text = "Idiomas";
+            // 
+            // CapacitacionesListBox2
+            // 
+            this.CapacitacionesListBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CapacitacionesListBox2.FormattingEnabled = true;
+            this.CapacitacionesListBox2.Location = new System.Drawing.Point(664, 158);
+            this.CapacitacionesListBox2.Name = "CapacitacionesListBox2";
+            this.CapacitacionesListBox2.Size = new System.Drawing.Size(320, 31);
+            this.CapacitacionesListBox2.TabIndex = 113;
+            this.CapacitacionesListBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // CompetenciasListBox2
+            // 
+            this.CompetenciasListBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CompetenciasListBox2.FormattingEnabled = true;
+            this.CompetenciasListBox2.Location = new System.Drawing.Point(337, 158);
+            this.CompetenciasListBox2.Name = "CompetenciasListBox2";
+            this.CompetenciasListBox2.Size = new System.Drawing.Size(301, 31);
+            this.CompetenciasListBox2.TabIndex = 112;
+            this.CompetenciasListBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // NombreTxtBox
+            // 
+            this.NombreTxtBox.Font = new System.Drawing.Font("Candara Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NombreTxtBox.Location = new System.Drawing.Point(21, 76);
+            this.NombreTxtBox.Name = "NombreTxtBox";
+            this.NombreTxtBox.Size = new System.Drawing.Size(301, 27);
+            this.NombreTxtBox.TabIndex = 111;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(17, 41);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(80, 23);
+            this.label5.TabIndex = 110;
+            this.label5.Text = "Nombre";
+            // 
             // DepartamentoComboBox
             // 
+            this.DepartamentoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DepartamentoComboBox.FormattingEnabled = true;
             this.DepartamentoComboBox.Location = new System.Drawing.Point(337, 72);
             this.DepartamentoComboBox.Name = "DepartamentoComboBox";
@@ -125,6 +181,7 @@
             // 
             // PuestoComboBox
             // 
+            this.PuestoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PuestoComboBox.FormattingEnabled = true;
             this.PuestoComboBox.Location = new System.Drawing.Point(664, 72);
             this.PuestoComboBox.Name = "PuestoComboBox";
@@ -420,58 +477,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1013, 230);
             this.dataGridView1.TabIndex = 94;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(17, 41);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 23);
-            this.label5.TabIndex = 110;
-            this.label5.Text = "Nombre";
-            // 
-            // NombreTxtBox
-            // 
-            this.NombreTxtBox.Font = new System.Drawing.Font("Candara Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NombreTxtBox.Location = new System.Drawing.Point(21, 76);
-            this.NombreTxtBox.Name = "NombreTxtBox";
-            this.NombreTxtBox.Size = new System.Drawing.Size(301, 27);
-            this.NombreTxtBox.TabIndex = 111;
-            // 
-            // CompetenciasListBox2
-            // 
-            this.CompetenciasListBox2.FormattingEnabled = true;
-            this.CompetenciasListBox2.Location = new System.Drawing.Point(337, 158);
-            this.CompetenciasListBox2.Name = "CompetenciasListBox2";
-            this.CompetenciasListBox2.Size = new System.Drawing.Size(301, 31);
-            this.CompetenciasListBox2.TabIndex = 112;
-            this.CompetenciasListBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // CapacitacionesListBox2
-            // 
-            this.CapacitacionesListBox2.FormattingEnabled = true;
-            this.CapacitacionesListBox2.Location = new System.Drawing.Point(664, 158);
-            this.CapacitacionesListBox2.Name = "CapacitacionesListBox2";
-            this.CapacitacionesListBox2.Size = new System.Drawing.Size(320, 31);
-            this.CapacitacionesListBox2.TabIndex = 113;
-            this.CapacitacionesListBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
-            // 
-            // IdiomaComboBox
-            // 
-            this.IdiomaComboBox.FormattingEnabled = true;
-            this.IdiomaComboBox.Location = new System.Drawing.Point(21, 158);
-            this.IdiomaComboBox.Name = "IdiomaComboBox";
-            this.IdiomaComboBox.Size = new System.Drawing.Size(301, 31);
-            this.IdiomaComboBox.TabIndex = 115;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(17, 123);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(79, 23);
-            this.label7.TabIndex = 114;
-            this.label7.Text = "Idiomas";
             // 
             // Nombre
             // 

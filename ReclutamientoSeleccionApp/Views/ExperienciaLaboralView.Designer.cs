@@ -35,6 +35,13 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Puesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Salario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Empresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Desde = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hasta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InstitucionId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label = new System.Windows.Forms.Label();
@@ -58,13 +65,6 @@
             this.fechaDesde = new System.Windows.Forms.DateTimePicker();
             this.SalarioTxtBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Puesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Salario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Empresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Desde = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hasta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InstitucionId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -151,6 +151,50 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(554, 112);
             this.dataGridView1.TabIndex = 61;
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
+            // 
+            // Puesto
+            // 
+            this.Puesto.DataPropertyName = "PuestoOcupado";
+            this.Puesto.HeaderText = "Puesto";
+            this.Puesto.Name = "Puesto";
+            // 
+            // Salario
+            // 
+            this.Salario.DataPropertyName = "Salario";
+            this.Salario.HeaderText = "Salario";
+            this.Salario.Name = "Salario";
+            // 
+            // Empresa
+            // 
+            this.Empresa.DataPropertyName = "NombreInstitucion";
+            this.Empresa.HeaderText = "Empresa";
+            this.Empresa.Name = "Empresa";
+            // 
+            // Desde
+            // 
+            this.Desde.DataPropertyName = "FechaDesde";
+            this.Desde.HeaderText = "Desde";
+            this.Desde.Name = "Desde";
+            // 
+            // Hasta
+            // 
+            this.Hasta.DataPropertyName = "FechaHasta";
+            this.Hasta.HeaderText = "Hasta";
+            this.Hasta.Name = "Hasta";
+            // 
+            // InstitucionId
+            // 
+            this.InstitucionId.DataPropertyName = "InstitucionId";
+            this.InstitucionId.HeaderText = "InstitucionId";
+            this.InstitucionId.Name = "InstitucionId";
+            this.InstitucionId.Visible = false;
             // 
             // button1
             // 
@@ -353,6 +397,7 @@
             // 
             // IntitucionComboBox
             // 
+            this.IntitucionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.IntitucionComboBox.FormattingEnabled = true;
             this.IntitucionComboBox.Location = new System.Drawing.Point(660, 214);
             this.IntitucionComboBox.Name = "IntitucionComboBox";
@@ -413,50 +458,6 @@
             this.label3.Size = new System.Drawing.Size(192, 29);
             this.label3.TabIndex = 117;
             this.label3.Text = "Salario ocupado:";
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.Visible = false;
-            // 
-            // Puesto
-            // 
-            this.Puesto.DataPropertyName = "PuestoOcupado";
-            this.Puesto.HeaderText = "Puesto";
-            this.Puesto.Name = "Puesto";
-            // 
-            // Salario
-            // 
-            this.Salario.DataPropertyName = "Salario";
-            this.Salario.HeaderText = "Salario";
-            this.Salario.Name = "Salario";
-            // 
-            // Empresa
-            // 
-            this.Empresa.DataPropertyName = "NombreInstitucion";
-            this.Empresa.HeaderText = "Empresa";
-            this.Empresa.Name = "Empresa";
-            // 
-            // Desde
-            // 
-            this.Desde.DataPropertyName = "FechaDesde";
-            this.Desde.HeaderText = "Desde";
-            this.Desde.Name = "Desde";
-            // 
-            // Hasta
-            // 
-            this.Hasta.DataPropertyName = "FechaHasta";
-            this.Hasta.HeaderText = "Hasta";
-            this.Hasta.Name = "Hasta";
-            // 
-            // InstitucionId
-            // 
-            this.InstitucionId.DataPropertyName = "InstitucionId";
-            this.InstitucionId.HeaderText = "InstitucionId";
-            this.InstitucionId.Name = "InstitucionId";
-            this.InstitucionId.Visible = false;
             // 
             // ExperienciaLaboralView
             // 

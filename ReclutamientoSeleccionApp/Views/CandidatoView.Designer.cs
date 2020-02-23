@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CandidatoView));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button15 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
@@ -78,9 +81,6 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -116,6 +116,51 @@
             this.panel1.Size = new System.Drawing.Size(273, 847);
             this.panel1.TabIndex = 18;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // button15
+            // 
+            this.button15.BackColor = System.Drawing.Color.Maroon;
+            this.button15.FlatAppearance.BorderSize = 0;
+            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button15.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button15.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button15.Location = new System.Drawing.Point(-3, 702);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(273, 47);
+            this.button15.TabIndex = 34;
+            this.button15.Text = "IMPRIMIR EMPLEADOS";
+            this.button15.UseVisualStyleBackColor = false;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
+            // 
+            // button14
+            // 
+            this.button14.BackColor = System.Drawing.Color.Maroon;
+            this.button14.FlatAppearance.BorderSize = 0;
+            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button14.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button14.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button14.Location = new System.Drawing.Point(-3, 649);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(273, 47);
+            this.button14.TabIndex = 33;
+            this.button14.Text = "BUSCAR CANDIDATOS";
+            this.button14.UseVisualStyleBackColor = false;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
+            // 
+            // button13
+            // 
+            this.button13.BackColor = System.Drawing.Color.Maroon;
+            this.button13.FlatAppearance.BorderSize = 0;
+            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button13.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button13.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button13.Location = new System.Drawing.Point(0, 596);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(273, 47);
+            this.button13.TabIndex = 32;
+            this.button13.Text = "SOLICITUDES PENDIENTES";
+            this.button13.UseVisualStyleBackColor = false;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // button12
             // 
@@ -415,6 +460,7 @@
             // 
             // PuestoComboBox
             // 
+            this.PuestoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PuestoComboBox.FormattingEnabled = true;
             this.PuestoComboBox.Location = new System.Drawing.Point(258, 86);
             this.PuestoComboBox.Name = "PuestoComboBox";
@@ -516,6 +562,7 @@
             // 
             // DepartamentoComboBox
             // 
+            this.DepartamentoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DepartamentoComboBox.FormattingEnabled = true;
             this.DepartamentoComboBox.Location = new System.Drawing.Point(258, 44);
             this.DepartamentoComboBox.Name = "DepartamentoComboBox";
@@ -692,51 +739,6 @@
             this.checkedListBox2.Name = "checkedListBox2";
             this.checkedListBox2.Size = new System.Drawing.Size(390, 196);
             this.checkedListBox2.TabIndex = 0;
-            // 
-            // button13
-            // 
-            this.button13.BackColor = System.Drawing.Color.Maroon;
-            this.button13.FlatAppearance.BorderSize = 0;
-            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button13.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button13.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button13.Location = new System.Drawing.Point(0, 596);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(273, 47);
-            this.button13.TabIndex = 32;
-            this.button13.Text = "SOLICITUDES PENDIENTES";
-            this.button13.UseVisualStyleBackColor = false;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
-            // 
-            // button14
-            // 
-            this.button14.BackColor = System.Drawing.Color.Maroon;
-            this.button14.FlatAppearance.BorderSize = 0;
-            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button14.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button14.Location = new System.Drawing.Point(-3, 649);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(273, 47);
-            this.button14.TabIndex = 33;
-            this.button14.Text = "BUSCAR CANDIDATOS";
-            this.button14.UseVisualStyleBackColor = false;
-            this.button14.Click += new System.EventHandler(this.button14_Click);
-            // 
-            // button15
-            // 
-            this.button15.BackColor = System.Drawing.Color.Maroon;
-            this.button15.FlatAppearance.BorderSize = 0;
-            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button15.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button15.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button15.Location = new System.Drawing.Point(-3, 702);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(273, 47);
-            this.button15.TabIndex = 34;
-            this.button15.Text = "IMPRIMIR EMPLEADOS";
-            this.button15.UseVisualStyleBackColor = false;
-            this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
             // CandidatoView
             // 
