@@ -493,7 +493,10 @@ namespace ReclutamientoSeleccionApp.Views
 
         private void button11_Click_1(object sender, EventArgs e)
         {
-
+            var institucionView = new InstitucionView();
+            Hide();
+            institucionView.Show();
+            Dispose();
         }
 
         private void button12_Click(object sender, EventArgs e)

@@ -144,8 +144,7 @@ namespace ReclutamientoSeleccionApp.Views
         }
         private async void update_dataGridView()
         {
-            dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.DataSource = (await _capacitacionService.GetAll()).ToList();
+            refreshTable();
         }
 
         private void DepartamentoComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -237,6 +236,7 @@ namespace ReclutamientoSeleccionApp.Views
             fechaDesde.Value = DateTime.Now;
             fechaHasta.Value = DateTime.Now;
             button8.Text = "Guardar";
+            criterioTxtBox.Text = "";
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -318,6 +318,18 @@ namespace ReclutamientoSeleccionApp.Views
         private void limpiarbtn_Click(object sender, EventArgs e)
         {
             cleanModel();
+            refreshTable();
+        }
+
+        private async void refreshTable() {
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.DataSource = (await _capacitacionService.GetAll()).ToList();
+        }
+
+        private  void pictureBox3_Click(object sender, EventArgs e)
+        {
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.DataSource = _capacitacionService.GetCapacitacionByCriteria(criterioTxtBox.Text).ToList();
         }
     }
 }

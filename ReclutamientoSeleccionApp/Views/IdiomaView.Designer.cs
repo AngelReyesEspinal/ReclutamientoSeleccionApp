@@ -55,11 +55,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.EstadosComboBox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.criterioTxtBox = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loading)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -211,7 +215,7 @@
             this.limpiarbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.limpiarbtn.Font = new System.Drawing.Font("Candara", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.limpiarbtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.limpiarbtn.Location = new System.Drawing.Point(639, 308);
+            this.limpiarbtn.Location = new System.Drawing.Point(639, 341);
             this.limpiarbtn.Name = "limpiarbtn";
             this.limpiarbtn.Size = new System.Drawing.Size(161, 44);
             this.limpiarbtn.TabIndex = 60;
@@ -298,7 +302,7 @@
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Font = new System.Drawing.Font("Candara", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button8.Location = new System.Drawing.Point(815, 308);
+            this.button8.Location = new System.Drawing.Point(815, 341);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(161, 44);
             this.button8.TabIndex = 55;
@@ -330,7 +334,7 @@
             // loading
             // 
             this.loading.Image = ((System.Drawing.Image)(resources.GetObject("loading.Image")));
-            this.loading.Location = new System.Drawing.Point(927, 269);
+            this.loading.Location = new System.Drawing.Point(927, 302);
             this.loading.Name = "loading";
             this.loading.Size = new System.Drawing.Size(147, 121);
             this.loading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -372,12 +376,45 @@
             this.label5.Text = "Estado:";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(984, 283);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(51, 29);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 124;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            // 
+            // criterioTxtBox
+            // 
+            this.criterioTxtBox.Font = new System.Drawing.Font("Candara Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.criterioTxtBox.Location = new System.Drawing.Point(581, 285);
+            this.criterioTxtBox.Name = "criterioTxtBox";
+            this.criterioTxtBox.Size = new System.Drawing.Size(395, 27);
+            this.criterioTxtBox.TabIndex = 123;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Georgia", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(295, 285);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(266, 29);
+            this.label10.TabIndex = 122;
+            this.label10.Text = "Buscar por descripcion:";
+            // 
             // IdiomaView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1061, 560);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.criterioTxtBox);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.EstadosComboBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
@@ -404,6 +441,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loading)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -437,5 +475,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.TextBox criterioTxtBox;
+        private System.Windows.Forms.Label label10;
     }
 }

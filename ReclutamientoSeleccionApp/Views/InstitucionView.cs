@@ -16,6 +16,8 @@ namespace ReclutamientoSeleccionApp.Views
     {
         private readonly InstitucionService _institucionView;
         private int _rowSelectedId = 0;
+        private object _institucionViewGetIdiomaByCriteria;
+
         public InstitucionView()
         {
             InitializeComponent();
@@ -49,6 +51,7 @@ namespace ReclutamientoSeleccionApp.Views
             _rowSelectedId = 0;
             NombreTxtBox.Text = "";
             button8.Text = "Guardar";
+            criterioTxtBox.Text = "";
         }
 
         private void hideLoading()
@@ -101,6 +104,7 @@ namespace ReclutamientoSeleccionApp.Views
         private void limpiarbtn_Click(object sender, EventArgs e)
         {
             cleanModel();
+            update_dataGridView();
         }
 
         private async void button1_Click(object sender, EventArgs e)
@@ -177,6 +181,12 @@ namespace ReclutamientoSeleccionApp.Views
             _rowSelectedId = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells["Id"].FormattedValue.ToString());
             NombreTxtBox.Text = dataGridView1.Rows[rowIndex].Cells["Nombre"].FormattedValue.ToString();
             button8.Text = "Editar";
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.DataSource =  _institucionView.GetIdiomaByCriteria(criterioTxtBox.Text).ToList();
         }
     }
 }

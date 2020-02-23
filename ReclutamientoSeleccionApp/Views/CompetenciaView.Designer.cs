@@ -55,17 +55,21 @@
             this.loading = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button9 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.PuestoComboBox = new System.Windows.Forms.ComboBox();
             this.DepartamentoComboBox = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.button9 = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.criterioTxtBox = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loading)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -105,7 +109,7 @@
             this.limpiarbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.limpiarbtn.Font = new System.Drawing.Font("Candara", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.limpiarbtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.limpiarbtn.Location = new System.Drawing.Point(639, 355);
+            this.limpiarbtn.Location = new System.Drawing.Point(639, 382);
             this.limpiarbtn.Name = "limpiarbtn";
             this.limpiarbtn.Size = new System.Drawing.Size(161, 44);
             this.limpiarbtn.TabIndex = 76;
@@ -120,7 +124,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Candara", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(887, 492);
+            this.button1.Location = new System.Drawing.Point(887, 519);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(162, 45);
             this.button1.TabIndex = 75;
@@ -135,7 +139,7 @@
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Candara", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button7.Location = new System.Drawing.Point(713, 492);
+            this.button7.Location = new System.Drawing.Point(713, 519);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(162, 45);
             this.button7.TabIndex = 74;
@@ -192,7 +196,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Georgia", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Brown;
-            this.label6.Location = new System.Drawing.Point(303, 374);
+            this.label6.Location = new System.Drawing.Point(303, 401);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(198, 34);
             this.label6.TabIndex = 73;
@@ -207,7 +211,7 @@
             this.Puesto,
             this.Id,
             this.PuestoId});
-            this.dataGridView1.Location = new System.Drawing.Point(309, 425);
+            this.dataGridView1.Location = new System.Drawing.Point(309, 452);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(375, 112);
             this.dataGridView1.TabIndex = 72;
@@ -295,7 +299,7 @@
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Font = new System.Drawing.Font("Candara", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button8.Location = new System.Drawing.Point(815, 355);
+            this.button8.Location = new System.Drawing.Point(815, 382);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(161, 44);
             this.button8.TabIndex = 71;
@@ -325,7 +329,7 @@
             // loading
             // 
             this.loading.Image = ((System.Drawing.Image)(resources.GetObject("loading.Image")));
-            this.loading.Location = new System.Drawing.Point(927, 316);
+            this.loading.Location = new System.Drawing.Point(927, 343);
             this.loading.Name = "loading";
             this.loading.Size = new System.Drawing.Size(147, 121);
             this.loading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -362,6 +366,21 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(263, 574);
             this.panel1.TabIndex = 67;
+            // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.Color.Maroon;
+            this.button9.FlatAppearance.BorderSize = 0;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button9.Location = new System.Drawing.Point(5, 376);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(228, 40);
+            this.button9.TabIndex = 28;
+            this.button9.Text = "COMPETENCIAS";
+            this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // pictureBox2
             // 
@@ -413,20 +432,35 @@
             this.label9.TabIndex = 83;
             this.label9.Text = "Departamento:";
             // 
-            // button9
+            // pictureBox3
             // 
-            this.button9.BackColor = System.Drawing.Color.Maroon;
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button9.Location = new System.Drawing.Point(5, 376);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(228, 40);
-            this.button9.TabIndex = 28;
-            this.button9.Text = "COMPETENCIAS";
-            this.button9.UseVisualStyleBackColor = false;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(971, 338);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(51, 29);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 118;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            // 
+            // criterioTxtBox
+            // 
+            this.criterioTxtBox.Font = new System.Drawing.Font("Candara Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.criterioTxtBox.Location = new System.Drawing.Point(568, 340);
+            this.criterioTxtBox.Name = "criterioTxtBox";
+            this.criterioTxtBox.Size = new System.Drawing.Size(395, 27);
+            this.criterioTxtBox.TabIndex = 117;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Georgia", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(296, 340);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(266, 29);
+            this.label10.TabIndex = 116;
+            this.label10.Text = "Buscar por descripcion:";
             // 
             // CompetenciaView
             // 
@@ -434,6 +468,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1067, 572);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.criterioTxtBox);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.DepartamentoComboBox);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label3);
@@ -464,6 +501,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.loading)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -503,5 +541,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn PuestoId;
         private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.TextBox criterioTxtBox;
+        private System.Windows.Forms.Label label10;
     }
 }

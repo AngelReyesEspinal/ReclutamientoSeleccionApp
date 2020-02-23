@@ -93,6 +93,7 @@ namespace ReclutamientoSeleccionApp.Views
             _rowSelectedId = 0;
             NombreTxtBox.Text = "";
             button1.Text = "Guardar";
+            criterioTxtBox.Text = "";
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -111,6 +112,7 @@ namespace ReclutamientoSeleccionApp.Views
         private void limpiarbtn_Click(object sender, EventArgs e)
         {
             cleanModel();
+            update_dataGridView();
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -226,6 +228,12 @@ namespace ReclutamientoSeleccionApp.Views
             Hide();
             idiomaView.Show();
             Dispose();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.DataSource =  _departamentoService.GetDepartamentoByCriteria(criterioTxtBox.Text).ToList();
         }
     }
 }

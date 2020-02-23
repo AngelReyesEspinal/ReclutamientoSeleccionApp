@@ -33,5 +33,10 @@ namespace ReclutamientoSeleccionApp.Bl.Services.UserService
                 return _context.Departamentos.Any(x => !x.Deleted && x.Nombre.ToLower().Trim() == name.ToLower().Trim());
             });
         }
+
+        public IQueryable<Departamento> GetDepartamentoByCriteria(string criterio)
+        {
+            return _context.Departamentos.Where(x => !x.Deleted && x.Nombre.ToLower().Contains(criterio.ToLower())).AsQueryable();
+        }
     }
 }

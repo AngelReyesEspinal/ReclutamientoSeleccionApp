@@ -58,6 +58,10 @@ namespace ReclutamientoSeleccionApp.Views
         }
         private async void update_dataGridView()
         {
+            refreshTable();
+        }
+
+        private async void refreshTable() {
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.DataSource = (await _competenciaService.GetAllDtos()).ToList();
         }
@@ -139,11 +143,13 @@ namespace ReclutamientoSeleccionApp.Views
             DepartamentoComboBox.SelectedItem = null;
             PuestoComboBox.SelectedItem = null;
             button8.Text = "Guardar";
+            criterioTxtBox.Text = "";
         }
 
         private void limpiarbtn_Click(object sender, EventArgs e)
         {
             cleanModel();
+            refreshTable();
         }
 
         private async void button7_Click(object sender, EventArgs e)
@@ -247,6 +253,12 @@ namespace ReclutamientoSeleccionApp.Views
             Hide();
             competenciaView.Show();
             Dispose();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.DataSource = _competenciaService.GetCapacitacionByCriteria(criterioTxtBox.Text).ToList();
         }
     }
 }

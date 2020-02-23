@@ -33,5 +33,9 @@ namespace ReclutamientoSeleccionApp.Bl.Services.UserService
                 return _context.Niveles.Where(x => ids.Contains(x.Id)).AsQueryable();
             });
         }
+        public IQueryable<Nivel> GetIdiomaByCriteria(string criterio)
+        {
+            return _context.Niveles.Where(x => !x.Deleted && x.Titulo.ToLower().Contains(criterio.ToLower())).AsQueryable();
+        }
     }
 }

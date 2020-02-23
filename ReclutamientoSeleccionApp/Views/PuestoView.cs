@@ -62,6 +62,10 @@ namespace ReclutamientoSeleccionApp.Views
         }
 
         private async void update_dataGridView() {
+            refreshTable();
+        }
+
+        private async void refreshTable() {
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.DataSource = await _puestoService.GetAllDtos();
         }
@@ -173,6 +177,7 @@ namespace ReclutamientoSeleccionApp.Views
             EstadosComboBox.SelectedItem = null;
             DepartamentosComboBox.SelectedItem = null;
             button1.Text = "Guardar";
+            criterioTxtBox.Text = "";
         }
 
         private void hideLoading()
@@ -280,6 +285,7 @@ namespace ReclutamientoSeleccionApp.Views
         private void limpiarbtn_Click(object sender, EventArgs e)
         {
             cleanModel();
+            refreshTable();
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -353,6 +359,17 @@ namespace ReclutamientoSeleccionApp.Views
             Hide();
             competenciaView.Show();
             Dispose();
+        }
+
+        private void criterioTxtBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.DataSource =  _puestoService.GetIdiomaByCriteria(criterioTxtBox.Text).ToList();
         }
     }
 }

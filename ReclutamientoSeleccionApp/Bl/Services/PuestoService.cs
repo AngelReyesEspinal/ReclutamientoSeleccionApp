@@ -52,5 +52,10 @@ namespace ReclutamientoSeleccionApp.Bl.Services.UserService
                 return _context.Puestos.Where(x => ids.Contains(x.Id)).AsQueryable();
             });
         }
+
+        public IQueryable<Puesto> GetIdiomaByCriteria(string criterio)
+        {
+            return _context.Puestos.Where(x => !x.Deleted && x.Nombre.ToLower().Contains(criterio.ToLower())).AsQueryable();
+        }
     }
 }

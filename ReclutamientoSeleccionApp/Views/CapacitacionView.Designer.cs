@@ -75,11 +75,15 @@
             this.fechaHasta = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.criterioTxtBox = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loading)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // button9
@@ -292,7 +296,7 @@
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Font = new System.Drawing.Font("Candara", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button8.Location = new System.Drawing.Point(802, 466);
+            this.button8.Location = new System.Drawing.Point(802, 509);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(161, 44);
             this.button8.TabIndex = 91;
@@ -303,9 +307,9 @@
             // DescripcionTxtBox
             // 
             this.DescripcionTxtBox.Font = new System.Drawing.Font("Candara Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DescripcionTxtBox.Location = new System.Drawing.Point(470, 330);
+            this.DescripcionTxtBox.Location = new System.Drawing.Point(497, 330);
             this.DescripcionTxtBox.Name = "DescripcionTxtBox";
-            this.DescripcionTxtBox.Size = new System.Drawing.Size(493, 27);
+            this.DescripcionTxtBox.Size = new System.Drawing.Size(466, 27);
             this.DescripcionTxtBox.TabIndex = 90;
             // 
             // label
@@ -322,7 +326,7 @@
             // loading
             // 
             this.loading.Image = ((System.Drawing.Image)(resources.GetObject("loading.Image")));
-            this.loading.Location = new System.Drawing.Point(914, 427);
+            this.loading.Location = new System.Drawing.Point(914, 470);
             this.loading.Name = "loading";
             this.loading.Size = new System.Drawing.Size(147, 121);
             this.loading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -335,7 +339,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Georgia", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Brown;
-            this.label6.Location = new System.Drawing.Point(303, 513);
+            this.label6.Location = new System.Drawing.Point(303, 570);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(198, 34);
             this.label6.TabIndex = 93;
@@ -355,7 +359,7 @@
             this.Nivel,
             this.Desde,
             this.Hasta});
-            this.dataGridView1.Location = new System.Drawing.Point(309, 564);
+            this.dataGridView1.Location = new System.Drawing.Point(309, 624);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(752, 112);
             this.dataGridView1.TabIndex = 92;
@@ -453,7 +457,7 @@
             this.limpiarbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.limpiarbtn.Font = new System.Drawing.Font("Candara", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.limpiarbtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.limpiarbtn.Location = new System.Drawing.Point(626, 466);
+            this.limpiarbtn.Location = new System.Drawing.Point(626, 509);
             this.limpiarbtn.Name = "limpiarbtn";
             this.limpiarbtn.Size = new System.Drawing.Size(161, 44);
             this.limpiarbtn.TabIndex = 96;
@@ -468,7 +472,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Candara", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(899, 691);
+            this.button1.Location = new System.Drawing.Point(801, 559);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(162, 45);
             this.button1.TabIndex = 95;
@@ -483,7 +487,7 @@
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Candara", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button7.Location = new System.Drawing.Point(725, 691);
+            this.button7.Location = new System.Drawing.Point(627, 559);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(162, 45);
             this.button7.TabIndex = 94;
@@ -588,12 +592,45 @@
             this.label8.TabIndex = 112;
             this.label8.Text = "Fecha fin:";
             // 
+            // criterioTxtBox
+            // 
+            this.criterioTxtBox.Font = new System.Drawing.Font("Candara Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.criterioTxtBox.Location = new System.Drawing.Point(577, 454);
+            this.criterioTxtBox.Name = "criterioTxtBox";
+            this.criterioTxtBox.Size = new System.Drawing.Size(386, 27);
+            this.criterioTxtBox.TabIndex = 114;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Georgia", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(305, 454);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(266, 29);
+            this.label10.TabIndex = 113;
+            this.label10.Text = "Buscar por descripcion:";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(969, 453);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(51, 29);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 115;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            // 
             // CapacitacionView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1115, 748);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.criterioTxtBox);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.fechaHasta);
@@ -610,7 +647,6 @@
             this.Controls.Add(this.button8);
             this.Controls.Add(this.DescripcionTxtBox);
             this.Controls.Add(this.label);
-            this.Controls.Add(this.loading);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label9);
@@ -620,6 +656,7 @@
             this.Controls.Add(this.button7);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.loading);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CapacitacionView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -630,6 +667,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loading)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -683,5 +721,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Nivel;
         private System.Windows.Forms.DataGridViewTextBoxColumn Desde;
         private System.Windows.Forms.DataGridViewTextBoxColumn Hasta;
+        private System.Windows.Forms.TextBox criterioTxtBox;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

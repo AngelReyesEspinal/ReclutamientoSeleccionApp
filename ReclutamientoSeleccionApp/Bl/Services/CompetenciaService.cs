@@ -56,5 +56,10 @@ namespace ReclutamientoSeleccionApp.Bl.Services.UserService
                 return _context.Competencias.Any(x => !x.Deleted && x.Descripcion.ToLower().Trim() == descripcion.ToLower().Trim());
             });
         }
+
+        public IQueryable<Competencia> GetCapacitacionByCriteria(string criterio)
+        {
+            return _context.Competencias.Where(x => !x.Deleted && x.Descripcion.ToLower().Contains(criterio.ToLower())).AsQueryable();
+        }
     }
 }
